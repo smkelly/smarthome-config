@@ -24,6 +24,7 @@ services:
     volumes:
       - /opt/smarthome/appdaemon:/conf
       - ${SSL_PATH}:/certs:ro
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - 5050:5050
     depends_on:
@@ -34,6 +35,7 @@ services:
     image: nodered/node-red-docker:rpi-v8
     volumes:
       - /opt/smarthome/nodered:/data
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - 1880:1880
     restart: always
