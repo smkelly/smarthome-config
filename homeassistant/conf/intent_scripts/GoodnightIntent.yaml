@@ -1,0 +1,13 @@
+action:
+  service: script.turn_on
+  entity_id: script.goodnight
+speech:
+  type: plain
+  text: >
+   Good night!
+   {%- if is_state("input_boolean.wakeup_lights", "on") -%}
+    The lights will be on at {{ states("input_datetime.alarm_time") }}.
+   {%- else -%}
+    I won't turn the lights on. Enjoy sleeping in!
+   {%- endif -%}
+

@@ -1,0 +1,11 @@
+alias: Bar lights night light
+trigger:
+  platform: time
+  at: '22:00:00'
+condition:
+  condition: state
+  entity_id: light.bar_lights_level
+  state: 'off'
+action:
+  service: light.turn_on
+  entity_id: light.bar_lights_level

@@ -1,0 +1,4 @@
+alias: "Goodnight"
+sequence:
+  service: scene.turn_on
+  entity_id: scene.bed_time

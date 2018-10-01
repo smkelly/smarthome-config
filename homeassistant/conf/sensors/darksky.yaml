@@ -1,0 +1,27 @@
+platform: darksky
+api_key: !secret darksky_api_key
+units: us
+monitored_conditions:
+  - summary
+  - hourly_summary
+  - daily_summary
+  - temperature_low
+  - temperature_high
+#  - icon
+#  - nearest_storm_distance
+#  - nearest_storm_bearing
+  - precip_type
+  - precip_intensity
+  - precip_probability
+  - temperature
+  - apparent_temperature
+#  - dew_point
+  - wind_speed
+  - wind_bearing
+  - cloud_cover
+  - humidity
+#  - pressure
+  - visibility
+#  - ozone
+  - minutely_summary
+ 

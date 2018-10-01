@@ -1,0 +1,6 @@
+exclude:
+  domains:
+    - automation
+    - group
+    - updater
+    - weblink

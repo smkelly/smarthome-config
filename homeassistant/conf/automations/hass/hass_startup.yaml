@@ -1,0 +1,9 @@
+alias: HASS starting up
+trigger:
+  platform: homeassistant
+  event: start
+action:
+  service: notify.ios_smkelly
+  data:
+    message: "Starting up."
+

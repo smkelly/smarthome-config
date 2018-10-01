@@ -1,0 +1,6 @@
+platform: uber
+server_token: !secret uber_server_token
+start_latitude: !secret hass_latitude
+start_longitude: !secret hass_longitude
+end_latitude: !secret zone_smkelly_work_lat
+end_longitude: !secret zone_smkelly_work_lon

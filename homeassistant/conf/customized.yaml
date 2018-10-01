@@ -1,0 +1,37 @@
+device_tracker.rachel:
+  icon: mdi:cellphone-iphone
+device_tracker.sean:
+  icon: mdi:cellphone-iphone
+
+### Front Door Open
+binary_sensor.front_door:
+  device_class: door
+  friendly_name: Front Door
+
+### Bar Lights
+light.bar_lights_level:
+  friendly_name: Bar Lights
+
+### Scentsy
+switch.scentsy_switch:
+  friendly_name: Scentsy
+  icon: mdi:candle
+
+### Dark Sky
+sensor.dark_sky_temperature:
+  friendly_name: Outdoor Temperature
+sensor.dark_sky_apparent_temperature:
+  friendly_name: Outdoor Feels Like
+sensor.dark_sky_humidity:
+  friendly_name: Outdoor Humidity
+sensor.dark_sky_cloud_coverage:
+  friendly_name: Cloud Coverage
+sensor.dark_sky_daily_low_temperature:
+  friendly_name: Daily Low
+sensor.dark_sky_daily_high_temperature:
+  friendly_name: Daily High
+sensor.dark_sky_wind_speed:
+  friendly_name: Wind Speed
+sensor.dark_sky_wind_bearing:
+  friendly_name: Wind Bearing
+

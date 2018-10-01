@@ -1,0 +1,10 @@
+name: Front Door 12
+entities:
+  light.front_door_1:
+    state: on
+    brightness: 255
+    rgb_color: [255, 0, 0]
+  light.front_door_2:
+    state: on
+    brightness: 255
+    rgb_color: [0, 255, 0]

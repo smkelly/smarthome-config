@@ -1,0 +1,24 @@
+- name: twilio_sms
+  platform: twilio_sms
+  from_number: !secret twilio_number
+
+- name: smkelly_sms
+  platform: group
+  services:
+    service: twilio_sms
+    data:
+      target: !secret smkelly_phone
+
+- name: rachel_sms
+  platform: group
+  services:
+    service: twilio_sms
+    data:
+      target: !secret rachel_phone
+
+- name: all_sms
+  platform: group
+  services:
+    - service: smkelly_sms
+    - service: rachel_sms
+

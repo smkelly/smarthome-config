@@ -1,0 +1,4 @@
+alias: "Restart HASS"
+sequence:
+  - service: homeassistant.restart
+

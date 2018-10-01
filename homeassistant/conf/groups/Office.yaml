@@ -1,0 +1,3 @@
+- light.office_light
+- sensor.office_temperature
+- binary_sensor.office_occupancy 

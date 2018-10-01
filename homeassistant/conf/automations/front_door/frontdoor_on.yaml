@@ -1,0 +1,14 @@
+alias: 'Front Door light at night'
+trigger:
+  platform: sun
+  event: sunset
+  offset: '-00:15:00'
+action:
+  service: scene.turn_on
+  data_template:
+    entity_id: >
+      {% set scene = "scene.front_door_" + now().month|string %}
+      {% if states(scene) == "unknown" %}
+      {%   set scene = "scene.front_door_normal" %}
+      {% endif %}
+      {{ scene }}

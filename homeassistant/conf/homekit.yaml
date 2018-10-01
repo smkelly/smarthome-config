@@ -1,0 +1,25 @@
+auto_start: false
+port: 51827
+filter:
+  include_domains:
+    - light
+  include_entities:
+    - binary_sensor.family_room_occupancy
+    - binary_sensor.front_door
+    - binary_sensor.guest_room_occupancy
+    - binary_sensor.home_occupancy
+    - binary_sensor.office_occupancy
+    - climate.home
+    - group.bedroom_fan
+    - group.family_room_lights
+    - group.living_room_lamps
+    - input_boolean.wakeup_lights
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_temperature
+    - sensor.family_room_temperature
+    - sensor.guest_room_temperature
+    - sensor.home_humidity
+    - sensor.office_temperature
+    - switch.living_room_lamp_1
+    - switch.living_room_lamp_2
+    - switch.scentsy_switch

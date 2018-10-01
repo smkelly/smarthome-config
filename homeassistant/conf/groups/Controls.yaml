@@ -1,0 +1,8 @@
+control: hidden
+entities:
+- input_boolean.wakeup_lights
+- input_datetime.alarm_time
+- input_boolean.sleeping
+- input_boolean.vacation_mode
+- input_boolean.rainbow_mode
+- input_boolean.presence_detection

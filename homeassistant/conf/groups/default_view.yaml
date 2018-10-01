@@ -1,0 +1,11 @@
+view: yes
+name: Rooms
+entities:
+  - group.family_room
+  - group.living_room
+  - group.hall
+  - group.master_bedroom
+  - group.foyer
+  - group.guest_room
+  - group.office
+  - group.outside

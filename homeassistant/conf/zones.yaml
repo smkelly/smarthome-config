@@ -1,0 +1,19 @@
+- name: home
+  icon: mdi:home
+  latitude: !secret hass_latitude
+  longitude: !secret hass_longitude
+  radius: 165
+
+- name: rachel_work
+  icon: mdi:domain
+  latitude: !secret zone_rachel_work_lat
+  longitude: !secret zone_rachel_work_lon
+  radius: 100
+
+- name: smkelly_work
+  icon: mdi:domain
+  latitude: !secret zone_smkelly_work_lat
+  longitude: !secret zone_smkelly_work_lon
+  radius: 100
+
+

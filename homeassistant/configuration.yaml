@@ -1,0 +1,49 @@
+homeassistant:
+  name: Home
+  latitude: !secret hass_latitude
+  longitude: !secret hass_longitude
+  elevation: !secret hass_elevation
+  unit_system: imperial
+  time_zone: America/Chicago
+  customize: !include conf/customized.yaml
+  packages: !include_dir_named conf/packages/
+
+alarm_control_panel: !include conf/alarm_control_panel.yaml
+alexa:
+automation: !include_dir_list conf/automations/
+binary_sensor: !include_dir_list conf/binary_sensors/
+cloud: !include conf/cloud.yaml
+config:
+device_tracker: !include conf/device_tracker.yaml
+discovery: !include conf/discovery.yaml
+ecobee: !include conf/ecobee.yaml
+frontend: !include conf/frontend.yaml
+group: !include_dir_named conf/groups/
+history: !include conf/history.yaml
+http: !include conf/http.yaml
+homekit: !include conf/homekit.yaml
+hue: !include conf/hue.yaml
+ios:
+input_boolean: !include_dir_named conf/input_booleans/
+input_datetime: !include_dir_named conf/input_datetimes/
+intent_script: !include_dir_named conf/intent_scripts/
+logbook: !include conf/logbook.yaml
+logger: !include conf/logger.yaml
+map:
+media_player:
+notify: !include conf/notifiers.yaml
+rainmachine: !include conf/rainmachine.yaml
+recorder: !include conf/recorder.yaml
+remote: !include conf/remote.yaml
+scene: !include_dir_list conf/scenes/
+script: !include_dir_named conf/scripts/
+sensor: !include_dir_list conf/sensors/
+sun:
+tts: !include conf/tts.yaml
+twilio: !include conf/twilio.yaml
+updater: !include conf/updater.yaml
+vacuum: !include conf/vacuum.yaml
+weather: !include conf/weather.yaml
+zeroconf:
+zone: !include conf/zones.yaml
+zwave: !include conf/zwave.yaml

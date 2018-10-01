@@ -1,0 +1,3 @@
+platform: manual
+name: Home Alarm
+code: !secret alarm_code

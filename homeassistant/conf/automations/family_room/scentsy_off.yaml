@@ -1,0 +1,7 @@
+alias: Turn off Scentsy
+trigger:
+  platform: time
+  at: '18:30:00'
+action:
+  service: switch.turn_off
+  entity_id: switch.scentsy_switch

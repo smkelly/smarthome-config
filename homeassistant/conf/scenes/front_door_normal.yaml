@@ -1,0 +1,10 @@
+name: Front Door Normal
+entities:
+  light.front_door_1:
+    state: on
+    brightness: 255
+    rgb_color: [255,205,120]
+  light.front_door_2:
+    state: on
+    brightness: 255
+    rgb_color: [255,205,120]

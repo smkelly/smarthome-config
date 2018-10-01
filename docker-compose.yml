@@ -1,0 +1,42 @@
+version: '3.6'
+
+services:
+  hass:
+    container_name: hass
+    image: homeassistant/raspberrypi3-homeassistant:0.79.1
+    volumes:
+      - /opt/smarthome/homeassistant/:/config
+      - /etc/localtime:/etc/localtime:ro
+      - ${SSL_PATH}/:/etc/ssl/private:ro
+      - /etc/ssl/certs:/etc/ssl/certs:ro
+    devices:
+      - /dev/serial/by-id/usb-0658_0200-if00:/dev/serial/by-id/usb-0658_0200-if00
+    restart: always
+    # Needed due to HomeKit; it doesn't work from a Docker network
+    network_mode: host
+
+  appdaemon:
+    container_name: appdaemon
+    image: smkelly/appdaemon
+    build:
+      context: ~smkelly/src/appdaemon
+      dockerfile: Dockerfile-rpi3
+    volumes:
+      - /opt/smarthome/appdaemon:/conf
+      - ${SSL_PATH}:/certs:ro
+    ports:
+      - 5050:5050
+    depends_on:
+      - hass
+
+  nodered:
+    container_name: nodered
+    image: nodered/node-red-docker:rpi-v8
+    volumes:
+      - /opt/smarthome/nodered:/data
+    ports:
+      - 1880:1880
+    restart: always
+    depends_on:
+      - hass
+

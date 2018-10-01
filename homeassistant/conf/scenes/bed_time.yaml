@@ -1,0 +1,8 @@
+name: Bed Time
+entities:
+  group.bedroom_fan: on
+  group.family_room_lights: off
+  group.living_room_lamps: off
+  light.bar_lights_level: on
+  remote.family_room: off
+  switch.scentsy_switch: off

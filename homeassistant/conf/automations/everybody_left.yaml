@@ -1,0 +1,18 @@
+alias: Everyone has left
+trigger:
+  platform: state
+  entity_id: group.residents
+  from: 'home'
+  to: 'not_home'
+condition:
+  condition: state
+  entity_id: input_boolean.presence_detection
+  state: 'on'
+action:
+  - service: light.turn_off
+  - service: homeassistant.turn_off
+    entity_id:
+      - group.sonos
+      - media_player.home_theater
+      - remote.family_room
+      - switch.scentsy_switch

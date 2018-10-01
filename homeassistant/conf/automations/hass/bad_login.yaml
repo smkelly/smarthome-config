@@ -1,0 +1,8 @@
+alias: Login Failure
+trigger:
+  platform: template
+  value_template: "{{ states('persistent_notification.httplogin') != 'unknown' }}"
+action:
+  service: notify.smkelly_sms
+  data:
+    message: "HASS bad login attempt."

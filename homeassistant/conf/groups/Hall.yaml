@@ -1,0 +1,3 @@
+- climate.home
+- sensor.home_humidity
+- binary_sensor.home_occupancy

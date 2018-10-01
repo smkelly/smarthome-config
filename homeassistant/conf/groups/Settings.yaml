@@ -1,0 +1,6 @@
+name: Settings
+view: yes
+entities:
+  - group.controls
+  - group.hass_system
+  - group.residents

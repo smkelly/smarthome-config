@@ -1,0 +1,4 @@
+- light.master_hall
+- group.bedroom_fan
+- sensor.master_bedroom_temperature
+- binary_sensor.master_bedroom_occupancy

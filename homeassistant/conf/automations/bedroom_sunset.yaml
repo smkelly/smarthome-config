@@ -1,0 +1,16 @@
+alias: Bedroom Sunset
+trigger:
+  platform: sun
+  event: sunset
+  offset: '-00:15:00'
+condition:
+  condition: state
+  entity_id: light.master_hall
+  state: 'off'
+action:
+  service: light.turn_on
+  entity_id: light.master_hall
+  data:
+    brightness: 255
+    transition: 900
+    kelvin: 2700

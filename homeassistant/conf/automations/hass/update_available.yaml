@@ -1,0 +1,9 @@
+alias: 'Update Available Notification'
+trigger:
+  platform: state
+  entity_id: updater.updater
+action:
+  service: notify.ios_smkelly
+  data:
+    message: 'Update for Home Assistant is available.'
+

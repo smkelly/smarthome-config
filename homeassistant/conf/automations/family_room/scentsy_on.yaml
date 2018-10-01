@@ -1,0 +1,11 @@
+alias: Scentsy turn on
+trigger:
+  platform: time
+  at: '16:30:00'
+condition:
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+action:
+  service: switch.turn_on
+  entity_id: switch.scentsy_switch

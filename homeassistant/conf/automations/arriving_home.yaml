@@ -1,0 +1,14 @@
+alias: Arriving home
+trigger:
+  platform: state
+  entity_id: group.residents
+  from: 'not_home'
+  to: 'home'
+condition:
+  condition: state
+  entity_id: input_boolean.presence_detection
+  state: 'on'
+action:
+  - service: light.turn_on
+    entity_id: group.family_room_lights
+  - service: vacuum.return_to_base

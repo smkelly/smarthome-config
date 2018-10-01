@@ -1,0 +1,16 @@
+alias: 'Random Living Room color'
+trigger:
+  platform: time
+  minutes: '/1'
+  seconds: 0
+condition:
+  condition: state
+  entity_id: input_boolean.rainbow_mode
+  state: 'on'
+action:
+  service: light.turn_on
+  entity_id: group.family_room_lights
+  data:
+    effect: random
+    transition: 60
+    brightness: 255

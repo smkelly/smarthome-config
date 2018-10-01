@@ -1,0 +1,18 @@
+alias: "Wake Up"
+sequence:
+  - service: light.turn_on
+    entity_id: group.master_bedroom
+    data:
+      transition: 600
+      brightness: 255
+      kelvin: 2700
+  - delay:
+      minutes: 10
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.sleeping
+  - service: light.turn_on
+    entity_id: group.family_room
+    data:
+      transition: 300
+      brightness: 255
+      kelvin: 2700

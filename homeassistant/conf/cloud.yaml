@@ -1,0 +1,11 @@
+alexa:
+  filter:
+    include_entities:
+      - group.bedroom_fan
+      - group.living_room_lamps
+    exclude_domains:
+      - alert
+      - automation
+      - group
+      - media_player
+      - sensor

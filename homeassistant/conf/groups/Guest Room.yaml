@@ -1,0 +1,2 @@
+- sensor.guest_room_temperature        
+- binary_sensor.guest_room_occupancy   

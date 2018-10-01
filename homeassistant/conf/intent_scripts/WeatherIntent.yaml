@@ -1,0 +1,20 @@
+speech:
+  type: plain
+  text: >
+    {%- set temp = states('sensor.dark_sky_temperature') | round -%}
+    {%- set t_hi = states('sensor.dark_sky_daytime_high_temperature') | round -%}
+    {%- set t_low = states('sensor.dark_sky_overnight_low_temperature') | round -%}
+    {%- set feel = states('sensor.dark_sky_apparent_temperature') | round -%}
+    {%- set humid = states('sensor.dark_sky_humidity') | round -%}
+    {%- set now = states('sensor.dark_sky_summary') -%}
+    {%- set hourly = states('sensor.dark_sky_hourly_summary') -%}
+    {%- set daily = states('sensor.dark_sky_daily_summary') -%}
+    Right now, it is {{ temp }} out
+    {%- if temp != feel -%}
+    but it feels like {{ feel }}
+    {%- endif -%}.
+    The current humidity is {{ humid }}%.
+    Conditions are currently {{ now }}.
+    For today, {{ hourly }}.
+    Today's high is {{ t_hi }} and the low is {{ t_low }}.
+    The forecast calls for {{ daily }}.

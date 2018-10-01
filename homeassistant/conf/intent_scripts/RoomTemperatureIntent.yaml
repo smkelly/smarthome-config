@@ -1,0 +1,17 @@
+speech:
+  type: plain
+  text: >
+   {%- set room_id = Room.replace(" ", "_") -%}
+   {%- if room_id in [ "outside", "outdoor" ] -%}
+     {%- set t = states('sensor.dark_sky_temperature') | round -%}
+   {%- else -%}
+     {%- set t = states("sensor." + room_id + "_temperature") -%}
+   {%- endif -%}
+   {%- if t == "unknown" -%}
+     I don't know where {{ Room }} is!
+   {%- else -%}
+     The {{ Room }} temperature is {{ t }} degrees.
+     {% if is_state("binary_sensor." + room_id + "_occupancy", "on") == True -%}
+       It is occupied.
+     {%- endif -%}
+   {%- endif -%}
