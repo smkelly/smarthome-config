@@ -10,3 +10,6 @@ action:
   - service: notify.ios_smkelly
     data:
       message: "HomeKit starting."
+  # We only want to fire this once per startup
+  - service: automation.turn_off
+    entity_id: automation.start_hass
