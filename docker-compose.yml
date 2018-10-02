@@ -3,7 +3,7 @@ version: '3.6'
 services:
   hass:
     container_name: hass
-    image: homeassistant/raspberrypi3-homeassistant:0.79.1
+    image: homeassistant/raspberrypi3-homeassistant:0.79.2
     volumes:
       - /opt/smarthome/homeassistant/:/config
       - /etc/localtime:/etc/localtime:ro
