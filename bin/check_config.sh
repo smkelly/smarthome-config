@@ -10,5 +10,5 @@ docker run --rm -it \
 	--name hass_test \
 	-v ${SSL_PATH}:/etc/ssl/private:ro \
        	-v /opt/smarthome/homeassistant/:/config:ro \
-       	homeassistant/raspberrypi3-homeassistant:${VERSION} \
-	hass -c /config --script check_config
+       	homeassistant/home-assistant:${VERSION} \
+	python -m homeassistant -c /config --script check_config
