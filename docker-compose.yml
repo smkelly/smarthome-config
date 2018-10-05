@@ -3,7 +3,7 @@ version: '3.6'
 services:
   hass:
     container_name: hass
-    image: homeassistant/raspberrypi3-homeassistant:0.79.2
+    image: homeassistant/home-assistant:0.79.3
     volumes:
       - /opt/smarthome/homeassistant/:/config
       - /etc/localtime:/etc/localtime:ro
@@ -17,10 +17,9 @@ services:
 
   appdaemon:
     container_name: appdaemon
-    image: smkelly/appdaemon
+    image: smkelly/appdaemon:3.0.1
     build:
-      context: ~smkelly/src/appdaemon
-      dockerfile: Dockerfile-rpi3
+      context: ~smkelly/src/appdaemon/
     volumes:
       - /opt/smarthome/appdaemon:/conf
       - ${SSL_PATH}:/certs:ro
@@ -32,7 +31,7 @@ services:
 
   nodered:
     container_name: nodered
-    image: nodered/node-red-docker:rpi-v8
+    image: nodered/node-red-docker:v8
     volumes:
       - /opt/smarthome/nodered:/data
       - /etc/localtime:/etc/localtime:ro
