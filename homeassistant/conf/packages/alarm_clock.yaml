@@ -1,0 +1,69 @@
+automation:
+  - alias: Wake Up Lights
+    trigger:
+      platform: time
+      seconds: 0
+    condition:
+      - condition: state
+        entity_id: input_boolean.wakeup_lights
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.vacation_mode
+        state: 'off'
+      - condition: template
+        value_template: >
+          {% set ts = states.input_datetime.alarm_time.attributes.timestamp - 600 %}
+          {% set midnight = as_timestamp("%d-%d-%d 00:00:00" | format(now().year, now().month, now().day)) %}
+          {{ now().strftime("%H:%M") == (midnight + ts) | timestamp_custom("%02H:%02M", 1) }}
+    action:
+      service: script.turn_on
+      entity_id: script.wakeup
+
+  - alias: Setup Wakeup switch for tomorrow
+    trigger:
+      platform: time
+      at: '20:00:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.vacation_mode
+        state: 'off'
+    action:
+      service_template: >
+        {% if ((as_timestamp(now())+86400) |  timestamp_custom("%w") | int) in range(1,6) %}
+          input_boolean.turn_on
+        {% else %}
+          input_boolean.turn_off
+        {% endif %}
+      entity_id: input_boolean.wakeup_lights
+ 
+input_boolean:
+  wakeup_lights:
+    name: Wake Up Lights
+    icon: mdi:alarm
+
+input_datetime:
+  alarm_time:
+    name: Alarm Time
+    has_date: false
+    has_time: true
+
+script:
+  wakeup:
+    alias: "Wake Up"
+    sequence:
+      - service: light.turn_on
+        entity_id: group.master_bedroom
+        data:
+          transition: 600
+          brightness: 255
+          kelvin: 2700
+      - delay:
+          minutes: 10
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.sleeping
+      - service: light.turn_on
+        entity_id: group.family_room
+        data:
+          transition: 300
+          brightness: 255
+          kelvin: 2700
