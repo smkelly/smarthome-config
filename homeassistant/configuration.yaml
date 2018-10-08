@@ -23,6 +23,7 @@ history: !include conf/history.yaml
 http: !include conf/http.yaml
 homekit: !include conf/homekit.yaml
 hue: !include conf/hue.yaml
+influxdb:
 ios:
 input_boolean: !include_dir_named conf/input_booleans/
 input_datetime: !include_dir_named conf/input_datetimes/

@@ -1,6 +1,29 @@
 version: '3.6'
 
 services:
+  influxdb:
+    container_name: influxdb
+    image: influxdb
+    volumes:
+      - /opt/smarthome/influxdb:/var/lib/influxdb
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8086:8086
+    restart: always
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    user: '1000'
+    volumes:
+      - /opt/smarthome/grafana:/var/lib/grafana
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 3000:3000
+    depends_on:
+      - influxdb
+    restart: always
+
   hass:
     container_name: hass
     image: homeassistant/home-assistant:0.79.3
@@ -14,6 +37,8 @@ services:
     restart: always
     # Needed due to HomeKit; it doesn't work from a Docker network
     network_mode: host
+    depends_on:
+      - influxdb
 
   appdaemon:
     container_name: appdaemon
