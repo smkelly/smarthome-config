@@ -1,7 +1,7 @@
 alias: Scentsy turn on
 trigger:
   platform: time
-  at: '16:30:00'
+  at: '17:30:00'
 condition:
   - condition: state
     entity_id: input_boolean.vacation_mode
