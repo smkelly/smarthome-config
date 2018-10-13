@@ -1,6 +1,7 @@
 .cloud/
 .homekit.state
 .ios.conf
+.ring_cache.pickle
 .storage/
 .uuid
 OZW_Log.txt

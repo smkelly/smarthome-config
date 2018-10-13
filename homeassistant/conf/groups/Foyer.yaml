@@ -1,1 +1,6 @@
 - binary_sensor.front_door
+- binary_sensor.ring_front_door_ding
+- binary_sensor.ring_front_door_motion
+- sensor.ring_front_door_last_ding
+- sensor.ring_front_door_last_motion
+
