@@ -12,6 +12,12 @@ services:
       - PGDATA
     ports:
       - 5432:5432
+    healthcheck:
+      test: "pg_isready -U ${POSTGRES_USER}"
+      interval: 15s
+      timeout: 30s
+      retries: 3
+      start_period: 1m
     restart: always
 
   influxdb:
