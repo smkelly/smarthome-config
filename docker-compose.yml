@@ -1,6 +1,19 @@
 version: '3.6'
 
 services:
+  postgres:
+    container_name: postgres
+    image: postgres:10
+    volumes:
+      - /opt/smarthome/postgres:/var/lib/postgres/data
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - PGDATA
+    ports:
+      - 5432:5432
+    restart: always
+
   influxdb:
     container_name: influxdb
     image: influxdb
@@ -39,6 +52,7 @@ services:
     network_mode: host
     depends_on:
       - influxdb
+      - postgres
 
   appdaemon:
     container_name: appdaemon
