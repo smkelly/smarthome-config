@@ -9,6 +9,9 @@ condition:
   entity_id: input_boolean.presence_detection
   state: 'on'
 action:
-  - service: light.turn_on
-    entity_id: group.family_room_lights
+  - service: homeassistant.turn_on
+    entity_id: 
+      - group.family_room_lights
+      - switch.family_room_tree
+      - switch.living_room_tree
   - service: vacuum.return_to_base

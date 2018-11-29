@@ -16,3 +16,5 @@ action:
       - media_player.home_theater
       - remote.family_room
       - switch.scentsy_switch
+      - switch.family_room_tree
+      - switch.living_room_tree
