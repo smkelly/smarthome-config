@@ -3,4 +3,5 @@
 - binary_sensor.ring_front_door_motion
 - sensor.ring_front_door_last_ding
 - sensor.ring_front_door_last_motion
-
+- light.front_door_1
+- light.front_door_2
