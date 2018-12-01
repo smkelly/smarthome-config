@@ -1,6 +1,8 @@
 platform: darksky
 api_key: !secret darksky_api_key
 units: us
+forecast:
+  - 0
 monitored_conditions:
   - summary
   - hourly_summary
