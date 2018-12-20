@@ -6,5 +6,4 @@ entities:
   light.bar_lights_level: on
   remote.family_room: off
   switch.family_room_tree: off
-  switch.living_room_tree: off
   switch.scentsy_switch: off
