@@ -1,4 +1,29 @@
 automation:
+  - alias: Cancel Wake Up
+    trigger:
+      - platform: state
+        entity_id: light.master_1
+        to: 'off'
+      - platform: state
+        entity_id: light.master_2
+        to: 'off'
+      - platform: state
+        entity_id: light.master_3
+        to: 'off'
+      - platform: state
+        entity_id: light.master_4
+        to: 'off'
+      - platform: state
+        entity_id: light.master_hall
+        to: 'off'
+    condition:
+        condition: state
+        entity_id: script.wakeup
+        state: 'on'
+    action:
+        service: script.turn_off
+        entity_id: script.wakeup
+
   - alias: Wake Up Lights
     trigger:
       platform: time
