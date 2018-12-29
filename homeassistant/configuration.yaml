@@ -38,7 +38,6 @@ notify: !include conf/notifiers.yaml
 rainmachine: !include conf/rainmachine.yaml
 recorder: !include conf/recorder.yaml
 remote: !include conf/remote.yaml
-ring: !include conf/ring.yaml
 scene: !include_dir_list conf/scenes/
 script: !include_dir_named conf/scripts/
 sensor: !include_dir_list conf/sensors/
