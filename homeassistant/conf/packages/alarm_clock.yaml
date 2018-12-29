@@ -72,6 +72,18 @@ input_datetime:
     has_date: false
     has_time: true
 
+intent_script:
+  SetAlarmTime:
+    action:
+      service: input_datetime.set_datetime
+      data_template:
+        entity_id: input_datetime.alarm_time
+        time: "{{ time }}"
+    speech:
+      type: plain
+      text: >
+        The wake up lights are now set to {{ states('input_datetime.alarm_time') }}.
+
 script:
   wakeup:
     alias: "Wake Up"
