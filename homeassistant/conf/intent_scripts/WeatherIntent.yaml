@@ -2,8 +2,8 @@ speech:
   type: plain
   text: >
     {%- set temp = states('sensor.dark_sky_temperature') | round -%}
-    {%- set t_hi = states('sensor.dark_sky_daytime_high_temperature') | round -%}
-    {%- set t_low = states('sensor.dark_sky_overnight_low_temperature') | round -%}
+    {%- set t_hi = states('sensor.dark_sky_daytime_high_temperature_0') | round -%}
+    {%- set t_low = states('sensor.dark_sky_overnight_low_temperature_0') | round -%}
     {%- set feel = states('sensor.dark_sky_apparent_temperature') | round -%}
     {%- set humid = states('sensor.dark_sky_humidity') | round -%}
     {%- set now = states('sensor.dark_sky_summary') -%}

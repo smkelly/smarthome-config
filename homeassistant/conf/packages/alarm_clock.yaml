@@ -1,4 +1,29 @@
 automation:
+  - alias: Cancel Wake Up
+    trigger:
+      - platform: state
+        entity_id: light.master_1
+        to: 'off'
+      - platform: state
+        entity_id: light.master_2
+        to: 'off'
+      - platform: state
+        entity_id: light.master_3
+        to: 'off'
+      - platform: state
+        entity_id: light.master_4
+        to: 'off'
+      - platform: state
+        entity_id: light.master_hall
+        to: 'off'
+    condition:
+        condition: state
+        entity_id: script.wakeup
+        state: 'on'
+    action:
+        service: script.turn_off
+        entity_id: script.wakeup
+
   - alias: Wake Up Lights
     trigger:
       platform: time
@@ -47,18 +72,62 @@ input_datetime:
     has_date: false
     has_time: true
 
+intent_script:
+  SetAlarmTime:
+    action:
+      service: input_datetime.set_datetime
+      data_template:
+        entity_id: input_datetime.alarm_time
+        time: "{{ time }}"
+    speech:
+      type: plain
+      text: >
+        The wake up lights are now set to {{ states('input_datetime.alarm_time') }}.
+
 script:
   wakeup:
     alias: "Wake Up"
     sequence:
       - service: light.turn_on
-        entity_id: group.master_bedroom
+        entity_id: light.master_1
         data:
           transition: 600
           brightness: 255
           kelvin: 2700
       - delay:
-          minutes: 10
+          minutes: 2
+      - service: light.turn_on
+        entity_id: light.master_2
+        data:
+          transition: 480
+          brightness: 255
+          kelvin: 2700
+      - delay:
+          minutes: 2
+      - service: light.turn_on
+        entity_id: light.master_3
+        data:
+          transition: 360
+          brightness: 255
+          kelvin: 2700
+      - delay:
+          minutes: 2
+      - service: light.turn_on
+        entity_id: light.master_4
+        data:
+          transition: 240
+          brightness: 255
+          kelvin: 2700
+      - delay:
+          minutes: 2
+      - service: light.turn_on
+        entity_id: light.master_hall
+        data:
+          transition: 120
+          brightness: 255
+          kelvin: 2700
+      - delay:
+          minutes: 2
       - service: input_boolean.turn_off
         entity_id: input_boolean.sleeping
       - service: light.turn_on

@@ -1,9 +1,0 @@
-action:
-  service: input_datetime.set_datetime
-  data_template:
-    entity_id: input_datetime.alarm_time
-    time: "{{ time }}"
-speech:
-  type: plain
-  text: >
-    The wake up lights are now set to {{ states('input_datetime.alarm_time') }}.

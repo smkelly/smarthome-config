@@ -1,0 +1,27 @@
+automation:
+  - alias: Christmas Tree on
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '-00:15:00'
+    condition:
+      condition: state
+      entity_id: switch.living_room_tree
+      state: 'off'
+    action:
+      service: homeassistant.turn_on
+      entity_id: switch.living_room_tree
+
+  - alias: Christmas Tree off
+    trigger:
+      platform: time
+      at: '01:00:00'
+    condition:
+      condition: state
+      entity_id: switch.living_room_tree
+      state: 'on'
+    action:
+      service: homeassistant.turn_off
+      entity_id: switch.living_room_tree
+
+

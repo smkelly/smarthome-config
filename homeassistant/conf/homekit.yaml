@@ -20,6 +20,8 @@ filter:
     - sensor.guest_room_temperature
     - sensor.home_humidity
     - sensor.office_temperature
+    - switch.family_room_tree
     - switch.living_room_lamp_1
     - switch.living_room_lamp_2
+    - switch.living_room_tree
     - switch.scentsy_switch

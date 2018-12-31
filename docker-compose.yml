@@ -45,7 +45,7 @@ services:
 
   hass:
     container_name: hass
-    image: homeassistant/home-assistant:0.82.1
+    image: homeassistant/home-assistant:0.84.6
     volumes:
       - /opt/smarthome/homeassistant/:/config
       - /etc/localtime:/etc/localtime:ro
@@ -62,7 +62,7 @@ services:
 
   appdaemon:
     container_name: appdaemon
-    image: smkelly/appdaemon:3.0.1
+    image: smkelly/appdaemon:3.0.2
     build:
       context: ~smkelly/src/appdaemon/
     volumes:

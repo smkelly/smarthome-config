@@ -3,8 +3,8 @@ entities:
   light.front_door_1:
     state: on
     brightness: 255
-    rgb_color: [255, 0, 0]
+    rgb_color: [255,199,123]
   light.front_door_2:
     state: on
     brightness: 255
-    rgb_color: [0, 255, 0]
+    rgb_color: [255,254,254]
