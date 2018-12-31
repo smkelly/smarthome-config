@@ -14,3 +14,4 @@ action:
       - group.family_room_lights
       - switch.family_room_tree
   - service: vacuum.return_to_base
+  - event: my_presence_home

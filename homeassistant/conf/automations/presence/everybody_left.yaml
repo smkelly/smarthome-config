@@ -18,3 +18,4 @@ action:
       - switch.scentsy_switch
       - switch.family_room_tree
       - switch.living_room_tree
+  - event: my_presence_away
