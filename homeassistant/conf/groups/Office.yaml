@@ -2,3 +2,4 @@
 - sensor.office_temperature
 - binary_sensor.office_occupancy 
 - vacuum.roomba
+- input_boolean.daily_vacuuming

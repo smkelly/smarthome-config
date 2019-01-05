@@ -45,7 +45,6 @@ sun:
 tts: !include conf/tts.yaml
 twilio: !include conf/twilio.yaml
 updater: !include conf/updater.yaml
-vacuum: !include conf/vacuum.yaml
 weather: !include conf/weather.yaml
 zeroconf:
 zone: !include conf/zones.yaml

@@ -1,0 +1,60 @@
+automation:
+  - alias: "Prepare the vacuum for a new day"
+    trigger:
+      platform: time
+      at: '00:00:00'
+    condition:
+      condition: state
+      entity_id: input_boolean.vacuum_ran_today
+      state: 'on'
+    action:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.vacuum_ran_today
+
+  - alias: "Start the vacuum"
+    trigger:
+      platform: event
+      event_type: my_presence_away
+    condition:
+      - condition: state
+        entity_id: input_boolean.daily_vacuuming
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.vacuum_ran_today
+        state: 'off'
+      - condition: template
+        value_template: '{{ state_attr("vacuum.roomba", "battery_level") >= 95 }}'
+    action:
+      - service: vacuum.turn_on
+        entity_id: vacuum.roomba
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.vacuum_ran_today
+
+  - alias: "Send the vacuum home"
+    trigger:
+      platform: event
+      event_type: my_presence_home
+    condition:
+      condition: state
+      entity_id: vacuum.roomba
+      state: 'on'
+    action:
+      service: vacuum.return_to_base
+      entity_id: vacuum.roomba
+
+input_boolean:
+  vacuum_ran_today:
+    name: Vacuum Ran Today
+  daily_vacuuming:
+    name: Daily Vacuuming
+
+vacuum:
+  - platform: roomba
+    name: roomba
+    host: !secret roomba_host
+    username: !secret roomba_blid
+    password: !secret roomba_password
+    continuous: true
