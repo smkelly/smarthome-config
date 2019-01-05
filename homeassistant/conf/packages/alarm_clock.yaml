@@ -17,12 +17,12 @@ automation:
         entity_id: light.master_hall
         to: 'off'
     condition:
-        condition: state
-        entity_id: script.wakeup
-        state: 'on'
+      condition: state
+      entity_id: script.wakeup
+      state: 'on'
     action:
-        service: script.turn_off
-        entity_id: script.wakeup
+      service: script.turn_off
+      entity_id: script.wakeup
 
   - alias: Wake Up Lights
     trigger:
@@ -60,7 +60,7 @@ automation:
           input_boolean.turn_off
         {% endif %}
       entity_id: input_boolean.wakeup_lights
- 
+
 input_boolean:
   wakeup_lights:
     name: Wake Up Lights
@@ -92,40 +92,37 @@ script:
         entity_id: light.master_1
         data:
           transition: 600
-          brightness: 255
-          kelvin: 2700
+          <<: &alarm_clock_light
+            brightness: 255
+            kelvin: 2700
       - delay:
           minutes: 2
       - service: light.turn_on
         entity_id: light.master_2
         data:
+          <<: *alarm_clock_light
           transition: 480
-          brightness: 255
-          kelvin: 2700
       - delay:
           minutes: 2
       - service: light.turn_on
         entity_id: light.master_3
         data:
+          <<: *alarm_clock_light
           transition: 360
-          brightness: 255
-          kelvin: 2700
       - delay:
           minutes: 2
       - service: light.turn_on
         entity_id: light.master_4
         data:
+          <<: *alarm_clock_light
           transition: 240
-          brightness: 255
-          kelvin: 2700
       - delay:
           minutes: 2
       - service: light.turn_on
         entity_id: light.master_hall
         data:
+          <<: *alarm_clock_light
           transition: 120
-          brightness: 255
-          kelvin: 2700
       - delay:
           minutes: 2
       - service: input_boolean.turn_off
@@ -133,6 +130,5 @@ script:
       - service: light.turn_on
         entity_id: group.family_room
         data:
+          <<: *alarm_clock_light
           transition: 300
-          brightness: 255
-          kelvin: 2700
