@@ -75,15 +75,14 @@ services:
     depends_on:
       - hass
 
-  nodered:
-    container_name: nodered
-    image: nodered/node-red-docker:v8
-    volumes:
-      - /opt/smarthome/nodered:/data
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-      - 1880:1880
-    restart: always
-    depends_on:
-      - hass
-
+#  nodered:
+#    container_name: nodered
+#    image: nodered/node-red-docker:v8
+#    volumes:
+#      - /opt/smarthome/nodered:/data
+#      - /etc/localtime:/etc/localtime:ro
+#    ports:
+#      - 1880:1880
+#    restart: always
+#    depends_on:
+#      - hass
