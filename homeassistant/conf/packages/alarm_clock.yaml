@@ -26,7 +26,7 @@ automation:
 
   - alias: Wake Up Lights
     trigger:
-      platform: time
+      platform: time_pattern
       seconds: 0
     condition:
       - condition: state

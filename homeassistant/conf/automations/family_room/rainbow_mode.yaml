@@ -1,6 +1,6 @@
 alias: 'Random Living Room color'
 trigger:
-  platform: time
+  platform: time_pattern
   minutes: '/1'
   seconds: 0
 condition:
