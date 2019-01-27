@@ -5,3 +5,10 @@
   verify_ssl: false
   new_device_defaults:
     track_new_devices: false
+
+- platform: snmp
+  host: !secret gateway_ip
+  community: !secret gateway_snmp_community
+  baseoid: !secret gateway_mac_oid
+  new_device_defaults:
+    track_new_devices: false
