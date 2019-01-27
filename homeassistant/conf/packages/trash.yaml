@@ -1,0 +1,34 @@
+automation:
+  - alias: Trash Day Reminder
+    trigger:
+      platform: time
+      at: '19:30:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.vacation_mode
+        state: 'off'
+      - condition: time
+        weekday:
+          - sun
+          - wed
+    action:
+      service: notify.all_sms
+      data:
+        message: "Reminder: Tomorrow is trash day."
+
+  - alias: Recycle Day Reminder
+    trigger:
+      platform: time
+      at: '19:30:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.vacation_mode
+        state: 'off'
+      - condition: time
+        weekday:
+          - tue
+    action:
+      service: notify.all_sms
+      data:
+        message: "Reminder: Tomorrow is recycling day."
+
