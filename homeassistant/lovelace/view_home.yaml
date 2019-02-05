@@ -1,0 +1,139 @@
+title: Home
+id: home
+icon: mdi:home
+cards:
+  - type: horizontal-stack
+    cards:
+    - type: "custom:button-card"
+      entity: input_boolean.presence_detection
+      name: Presence
+      icon: mdi:account
+      color_type: card
+      color: rgb(0, 100, 0)
+      color_off: rgb(100, 100, 100)
+      action: toggle
+    - type: "custom:button-card"
+      entity: input_boolean.daily_vacuuming
+      name: Daily
+      icon: mdi:robot-vacuum
+      color: rgb(0, 100, 0)
+      color_off: rgb(100, 100, 100)
+      color_type: card
+      action: toggle
+    - type: "custom:button-card"
+      entity: input_boolean.vacation_mode
+      name: Vacation
+      icon: mdi:airplane
+      color_type: card
+      color: rgb(0, 100, 0)
+      color_off: rgb(100, 100, 100)
+
+  - type: glance
+    title: Family Room
+    column_width: calc(100% / 3)
+    entities:
+      - entity: group.family_room_lights
+        name: Lights
+        icon: mdi:fan
+        tap_action:
+          action: toggle
+      - entity: sensor.family_room_temperature
+        name: Temperature
+      - entity: binary_sensor.family_room_occupancy
+        name: Occupancy
+      - entity: remote.family_room
+        name: Remote
+      - entity: switch.scentsy_switch
+        icon: mdi:flower
+        tap_action:
+          action: toggle
+
+  - type: glance
+    title: Foyer
+    show_name: true
+    entities:
+      - entity: binary_sensor.front_door
+        name: Door
+        icon: mdi:door
+      - light.front_door_1
+      - light.front_door_2
+
+  - type: picture-glance
+    title: Front Door
+    entities:
+      - binary_sensor.ring_front_door_motion
+      - binary_sensor.ring_front_door_ding
+      - light.front_door
+    camera_image: camera.front_door
+
+  - type: picture-glance
+    title: Master Bedroom
+    entity: group.bedroom_fan
+    show_state: off
+    state_image:
+      'on': !file /local/master_bedroom_on.png
+      'off': !file /local/master_bedroom_off.png
+    tap_action:
+      action: toggle
+    entities:
+      - entity: light.master_hall
+        icon: mdi:door
+
+  - type: vertical-stack
+    cards:
+    - type: picture-entity
+      entity: light.bar_lights_level
+      show_state: false
+      state_image:
+        'on': !file /local/bar_lights_on.png
+        'off': !file /local/bar_lights_off.png
+      tap_action:
+        action: toggle
+
+    - type: picture-entity
+      name: Lamps
+      entity: group.living_room_lamps
+      show_state: false
+      state_image:
+        'on': !file /local/living_room_lamps_on.png
+        'off': !file /local/living_room_lamps_off.png
+      tap_action:
+        action: toggle
+
+  - type: thermostat
+    entity: climate.home
+    name: Thermostat
+
+  - type: glance
+    title: Hall
+    entities:
+      - entity: sensor.home_humidity
+        name: Humidity
+      - entity: binary_sensor.home_occupancy
+        name: Occupancy
+
+  - type: glance
+    title: Office
+    entities:
+      - entity: light.office_light
+        name: Light
+        tap_action:
+          action: toggle
+      - entity: sensor.office_temperature
+        name: Temperature
+      - entity: binary_sensor.office_occupancy
+        name: Occupancy
+      - entity: vacuum.roomba
+        name: Roomba
+
+  - type: glance
+    title: Guest Room
+    entities:
+      - entity: sensor.guest_room_temperature
+        name: Temperature
+      - entity: binary_sensor.guest_room_occupancy
+        name: Occupancy
+
+  - type: weather-forecast
+    entity: weather.dark_sky
+

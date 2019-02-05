@@ -1,0 +1,54 @@
+title: Controls
+id: controls
+icon: mdi:settings
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        color_type: label-card
+        color: rgb(0, 0, 150)
+        name: "Occupancy"
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: device_tracker.rachel_iphone
+            name: Rachel
+            icon: mdi:cellphone-iphone
+            color_type: card
+            action: more_info
+            state:
+              - value: "home"
+                color: rgb(0, 0, 150)
+              - value: "not_home"
+                color: rgb(100, 100, 100)
+
+          - type: "custom:button-card"
+            entity: device_tracker.sean_iphone
+            name: Sean
+            icon: mdi:cellphone-iphone
+            color_type: card
+            action: more_info
+            state:
+              - value: "home"
+                color: rgb(0, 0, 150)
+              - value: "not_home"
+                color: rgb(100, 100, 100)
+
+  - type: glance
+    title: Alarm Clock
+    show_name: false
+    entities:
+      - entity: input_boolean.wakeup_lights
+        tap_action:
+          action: toggle
+      - input_datetime.alarm_time
+
+  - type: glance
+    title: Modes
+    entities:
+      - name: Sleeping
+        entity: input_boolean.sleeping
+      - name: Rainbow
+        icon: mdi:palette
+        entity: input_boolean.rainbow_mode

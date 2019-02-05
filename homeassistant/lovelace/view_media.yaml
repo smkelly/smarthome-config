@@ -1,0 +1,12 @@
+title: Media
+id: media
+icon: mdi:surround-sound
+cards:
+  - type: media-control
+    entity: media_player.family_room
+  - type: media-control
+    entity: media_player.living_room
+  - type: media-control
+    entity: media_player.master_bedroom
+  - type: media-control
+    entity: media_player.office

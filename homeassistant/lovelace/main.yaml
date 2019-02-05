@@ -1,0 +1,9 @@
+titlm: Home
+resources:
+  - url: /local/button-card/button-card.js
+    type: module
+views:
+  - !include view_home.yaml
+  - !include view_alarm.yaml
+  - !include view_media.yaml
+  - !include view_controls.yaml

@@ -1,0 +1,6 @@
+[submodule "homeassistant/third-party/button-card"]
+	path = homeassistant/third-party/button-card
+	url = https://github.com/kuuji/button-card
+[submodule "homeassistant/third-party/homeassistant-lovelace-gen"]
+	path = homeassistant/third-party/homeassistant-lovelace-gen
+	url = https://github.com/thomasloven/homeassistant-lovelace-gen
