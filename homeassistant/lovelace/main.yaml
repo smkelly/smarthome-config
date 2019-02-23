@@ -1,6 +1,6 @@
 titlm: Home
 resources:
-  - url: /local/button-card/button-card.js
+  - url: /local/button-card.js
     type: module
 views:
   - !include view_home.yaml
