@@ -44,6 +44,7 @@ scene: !include_dir_list conf/scenes/
 script: !include_dir_named conf/scripts/
 sensor: !include_dir_list conf/sensors/
 sun:
+system_health:
 tts: !include conf/tts.yaml
 twilio: !include conf/twilio.yaml
 updater: !include conf/updater.yaml

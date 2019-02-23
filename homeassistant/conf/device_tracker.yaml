@@ -3,6 +3,14 @@
   username: !secret unifi_username
   password: !secret unifi_password
   verify_ssl: false
+  monitored_conditions:
+    - ap_mac
+    - assoc_time
+    - channel
+    - first_seen
+    - ip
+    - last_seen
+    - vlan
   new_device_defaults:
     track_new_devices: false
 
