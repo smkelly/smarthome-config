@@ -36,6 +36,7 @@ logger: !include conf/logger.yaml
 lovelace: !include conf/lovelace.yaml
 map:
 media_player:
+mobile_app:
 notify: !include conf/notifiers.yaml
 rainmachine: !include conf/rainmachine.yaml
 recorder: !include conf/recorder.yaml
