@@ -34,13 +34,13 @@ automation:
         entity_id: input_boolean.vacuum_ran_today
 
   - alias: "Send the vacuum home"
+    # I used to only have this trigger if the vacuum was running.
+    # However, this fails if the arrival event happens during a
+    # mid-vacuum charge. It fails to trigger and the vacuum resumes.
+    # Instead, we fire it always and just ignore the vacuum's chimes.
     trigger:
       platform: event
       event_type: my_presence_home
-    condition:
-      condition: state
-      entity_id: vacuum.roomba
-      state: 'on'
     action:
       service: vacuum.return_to_base
       entity_id: vacuum.roomba
