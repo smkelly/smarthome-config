@@ -1,0 +1,21 @@
+automation:
+  - alias: "Sunset - Dark Mode on"
+    trigger:
+      platform: sun
+      event: sunset
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.dark_mode
+
+  - alias: "Sunrise - Dark Mode off"
+    trigger:
+      platform: sun
+      event: sunrise
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.dark_mode
+
+input_boolean:
+  dark_mode:
+    name: Dark Mode
+
