@@ -21,6 +21,14 @@ cards:
       color_type: card
       action: toggle
     - type: "custom:button-card"
+      entity: input_boolean.dark_mode
+      name: "Dark"
+      icon: mdi:weather-night
+      color_type: card
+      color: rgb(0, 100, 0)
+      color_off: rgb(100, 100, 100)
+      action: toggle
+    - type: "custom:button-card"
       entity: input_boolean.vacation_mode
       name: Vacation
       icon: mdi:airplane

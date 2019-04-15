@@ -1,19 +1,64 @@
 automation:
-  - alias: "Sunset - Dark Mode on"
+  - alias: "Dark Mode: Sunset (on)"
     trigger:
       platform: sun
       event: sunset
+    condition:
+      - condition: state
+        entity_id: input_boolean.dark_mode
+        state: "off"
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.dark_mode
 
-  - alias: "Sunrise - Dark Mode off"
+  - alias: "Dark Mode: Sunrise (off)"
     trigger:
       platform: sun
       event: sunrise
+    condition:
+      - condition: state
+        entity_id: input_boolean.dark_mode
+        state: "on"
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_cloud_coverage
+        below: 80
     action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.dark_mode
+
+  - alias: "Dark Mode: Cloudy Day (on)"
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.dark_sky_cloud_coverage
+      above: 80
+    condition:
+      - condition: state
+        entity_id: input_boolean.dark_mode
+        state: "off"
+      - condition: sun
+        after: sunrise
+      - condition: sun
+        before: sunset
+    action:
+      service: input_boolean.turn_on
+      entity_id: input_boolean.dark_mode
+
+  - alias: "Dark Mode: Clear Day (off)"
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.dark_sky_cloud_coverage
+      below: 80
+    condition:
+      - condition: state
+        entity_id: input_boolean.dark_mode
+        state: "on"
+      - condition: sun
+        after: sunrise
+      - condition: sun
+        before: sunset
+    action:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.dark_mode
 
 input_boolean:
   dark_mode:
