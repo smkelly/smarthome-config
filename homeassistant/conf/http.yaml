@@ -1,5 +1,4 @@
 base_url: !secret http_base_url
-api_password: !secret hass_password
 ssl_certificate: !secret http_ssl_cert
 ssl_key: !secret http_ssl_key
 ip_ban_enabled: True
