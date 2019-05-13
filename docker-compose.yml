@@ -3,7 +3,7 @@ version: '3.6'
 services:
   postgres:
     container_name: postgres
-    image: postgres:10
+    image: postgres:11
     volumes:
       - /opt/smarthome/postgres:/var/lib/postgres/data
     environment:
