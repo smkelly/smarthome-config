@@ -1,0 +1,14 @@
+switch:
+  -  platform: flux
+     name: "Family Room Light Adjuster"
+     start_time: "06:30"
+     stop_time: "22:00"
+     disable_brightness_adjust: true
+     mode: mired
+     lights:
+       - light.family_room_1
+       - light.family_room_2
+       - light.family_room_3
+       - light.family_room_4
+
+

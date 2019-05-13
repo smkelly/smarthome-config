@@ -1,0 +1,26 @@
+automation:
+  - alias: 'Dark mode: Front Door light off'
+    trigger:
+      platform: state
+      entity_id: input_boolean.dark_mode
+      to: "off"
+    action:
+      - service: light.turn_off
+        entity_id:
+          - light.front_door_1
+          - light.front_door_2
+
+  - alias: 'Dark mode: Front Door light on'
+    trigger:
+      platform: state
+      entity_id: input_boolean.dark_mode
+      to: "on"
+    action:
+      service: scene.turn_on
+      data_template:
+        entity_id: >
+          {% set scene = "scene.front_door_" + now().month|string %}
+          {% if states(scene) == "unknown" %}
+          {%   set scene = "scene.front_door_normal" %}
+          {% endif %}
+          {{ scene }}

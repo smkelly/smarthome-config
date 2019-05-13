@@ -45,6 +45,9 @@ cards:
         icon: mdi:fan
         tap_action:
           action: toggle
+      - entity: switch.family_room_light_adjuster
+        name: Light Adjuster
+        icon: mdi:weather-sunset
       - entity: sensor.family_room_temperature
         name: Temperature
       - entity: binary_sensor.family_room_occupancy

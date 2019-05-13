@@ -45,7 +45,7 @@ services:
 
   hass:
     container_name: hass
-    image: homeassistant/home-assistant:0.92.1
+    image: homeassistant/home-assistant:0.92.2
     volumes:
       - /opt/smarthome/homeassistant/:/config
       - /etc/localtime:/etc/localtime:ro
@@ -59,21 +59,6 @@ services:
     depends_on:
       - influxdb
       - postgres
-
-  appdaemon:
-    container_name: appdaemon
-    image: smkelly/appdaemon:3.0.2
-    build:
-      context: ~smkelly/src/appdaemon/
-    volumes:
-      - /opt/smarthome/appdaemon:/conf
-      - ${SSL_PATH}:/certs:ro
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-      - 5050:5050
-    restart: always
-    depends_on:
-      - hass
 
 #  nodered:
 #    container_name: nodered
