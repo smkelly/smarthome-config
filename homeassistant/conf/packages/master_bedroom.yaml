@@ -1,0 +1,32 @@
+automation:
+  - alias: "Dark mode: Master Bedroom on"
+    trigger:
+      platform: state
+      entity_id: input_boolean.dark_mode
+      to: "on"
+    condition:
+      condition: state
+      entity_id: light.master_hall
+      state: 'off'
+    action:
+      service: light.turn_on
+      entity_id: light.master_hall
+      data:
+        brightness: 255
+        transition: 300
+        kelvin: 2700
+
+  - alias: "Dark mode: Master Bedroom off"
+    trigger:
+      platform: state
+      entity_id: input_boolean.dark_mode
+      to: "off"
+    condition:
+      condition: state
+      entity_id: light.master_hall
+      state: 'on'
+    action:
+      service: light.turn_off
+      entity_id: light.master_hall
+      data:
+        transition: 300
