@@ -13,7 +13,6 @@ automation:
       entity_id: light.master_hall
       data:
         brightness: 255
-        transition: 300
         kelvin: 2700
 
   - alias: "Dark mode: Master Bedroom off"
@@ -28,5 +27,3 @@ automation:
     action:
       service: light.turn_off
       entity_id: light.master_hall
-      data:
-        transition: 300
