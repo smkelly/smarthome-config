@@ -1,10 +1,10 @@
 alias: Sonos Text To Speech
 sequence:
-  - service: media_player.sonos_snapshot
+  - service: sonos.snapshot
     data_template:
       entity_id: "{{ 'media_player.' ~ where }}"
       with_group: yes
-  - service: media_player.sonos_unjoin
+  - service: sonos.unjoin
     data_template:
       entity_id: "{{ 'media_player.' ~ where }}"
   - service: media_player.volume_set
@@ -26,7 +26,7 @@ sequence:
       {% set minutes = (duration / 60)|int % 60 %}
       {% set hours = (duration / 3600)|int %}
       {{ "%02i:%02i:%02i"|format(hours, minutes, seconds)}}
-  - service: media_player.sonos_restore
+  - service: sonos.restore
     data_template:
       entity_id: "{{ 'media_player.' ~ where }}"
       with_group: yes

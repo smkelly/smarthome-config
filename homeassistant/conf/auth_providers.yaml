@@ -1,1 +1,3 @@
 - type: homeassistant
+- type: legacy_api_password
+  api_password: !secret hass_password
