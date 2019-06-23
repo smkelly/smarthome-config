@@ -77,24 +77,29 @@ cards:
       - light.front_door
     camera_image: camera.front_door
 
-  - type: picture-glance
-    title: Master Bedroom
-    entity: group.bedroom_fan
-    show_state: off
-    state_image:
-      'on': !file /local/master_bedroom_on.png
-      'off': !file /local/master_bedroom_off.png
-    tap_action:
-      action: toggle
-    entities:
-      - entity: light.master_hall
-        icon: mdi:door
+  - type: vertical-stack
+    cards:
+      - type: picture-entity
+        name: Master Bedroom
+        entity: group.bedroom_fan
+        show_info: false
+        state_image:
+          'on': !file /local/master_bedroom_on.png
+          'off': !file /local/master_bedroom_off.png
+        tap_action:
+          action: toggle
+      - type: glance
+        show_name: false
+        entities:
+          - entity: sensor.master_bedroom_temperature
+          - entity: light.master_hall
+            icon: mdi:door
+          - entity: binary_sensor.master_bedroom_occupancy
 
   - type: vertical-stack
     cards:
     - type: picture-entity
       entity: light.bar_lights_level
-      show_state: false
       state_image:
         'on': !file /local/bar_lights_on.png
         'off': !file /local/bar_lights_off.png
@@ -104,7 +109,6 @@ cards:
     - type: picture-entity
       name: Lamps
       entity: group.living_room_lamps
-      show_state: false
       state_image:
         'on': !file /local/living_room_lamps_on.png
         'off': !file /local/living_room_lamps_off.png
@@ -118,6 +122,8 @@ cards:
   - type: glance
     title: Hall
     entities:
+      - entity: sensor.home_temperature
+        name: Temperature
       - entity: sensor.home_humidity
         name: Humidity
       - entity: binary_sensor.home_occupancy
@@ -126,6 +132,22 @@ cards:
   - type: glance
     title: Office
     entities:
+      - entity: light.office_1
+        name: Fan 1
+        tap_action:
+          action: toggle
+      - entity: light.office_2
+        name: Fan 2
+        tap_action:
+          action: toggle
+      - entity: light.office_3
+        name: Fan 3
+        tap_action:
+          action: toggle
+      - entity: light.office_4
+        name: Fan 4
+        tap_action:
+          action: toggle
       - entity: light.office_light
         name: Light
         tap_action:
@@ -143,6 +165,14 @@ cards:
       - entity: sensor.guest_room_temperature
         name: Temperature
       - entity: binary_sensor.guest_room_occupancy
+        name: Occupancy
+
+  - type: glance
+    title: Nursery
+    entities:
+      - entity: sensor.nursery_temperature
+        name: Temperature
+      - entity: binary_sensor.nursery_occupancy
         name: Occupancy
 
   - type: weather-forecast
