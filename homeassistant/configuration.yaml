@@ -39,6 +39,7 @@ map:
 media_player:
 mobile_app:
 notify: !include conf/notifiers.yaml
+person:
 rainmachine: !include conf/rainmachine.yaml
 recorder: !include conf/recorder.yaml
 remote: !include conf/remote.yaml
