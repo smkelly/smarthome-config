@@ -1,0 +1,23 @@
+automation:
+  - alias: "Office lights: Reset to normal"
+    trigger:
+      - platform: state
+        entity_id:
+          - light.office_light
+          - light.office_1
+          - light.office_2
+          - light.office_3
+          - light.office_4
+        to: "on"
+    condition:
+      condition: time
+      after: "06:00:00"
+      before: "21:00:00"
+    action:
+      service: light.turn_on
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"
+        color_name: "white"
+        brightness: 255
+        transition: 0
+
