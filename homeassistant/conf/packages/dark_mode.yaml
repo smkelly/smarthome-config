@@ -1,64 +1,73 @@
 automation:
-  - alias: "Dark Mode: Sunset (on)"
+  - alias: "Dark Mode: On"
     trigger:
-      platform: sun
-      event: sunset
+      - platform: sun
+        event: sunset
+      - platform: state
+        entity_id: sensor.dark_sky_precip
+      - platform: numeric_state
+        entity_id: sensor.dark_sky_cloud_coverage
+        above: 80
     condition:
-      - condition: state
-        entity_id: input_boolean.dark_mode
-        state: "off"
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.dark_mode
+          state: "off"
+        - condition: or
+          conditions:
+          - condition: sun
+            after: sunset
+          - condition: state
+            entity_id:  sensor.dark_sky_precip
+            state: "rain"
+          - condition: state
+            entity_id:  sensor.dark_sky_precip
+            state: "sleet"
+          - condition: state
+            entity_id:  sensor.dark_sky_precip
+            state: "snow"
+          - condition: and
+            # IF it is cloudy AND during the day
+            conditions:
+            - condition: numeric_state
+              entity_id: sensor.dark_sky_cloud_coverage
+              above: 80
+            - condition: sun
+              after: sunrise
+            - condition: sun
+              before: sunset
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.dark_mode
 
-  - alias: "Dark Mode: Sunrise (off)"
+  - alias: "Dark Mode:: Off"
     trigger:
-      platform: sun
-      event: sunrise
+      - platform: sun
+        event: sunrise
+      - platform: state
+        entity_id: sensor.dark_sky_precip
+        to: "unknown"
+      - platform: numeric_state
+        entity_id: sensor.dark_sky_cloud_coverage
+        below: 80
     condition:
       - condition: state
         entity_id: input_boolean.dark_mode
         state: "on"
+      - condition: sun
+        after: sunrise
+      - condition: sun
+        before: sunset
+      - condition: state
+        entity_id: sensor.dark_sky_precip
+        state: "unknown"
       - condition: numeric_state
         entity_id: sensor.dark_sky_cloud_coverage
         below: 80
     action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.dark_mode
-
-  - alias: "Dark Mode: Cloudy Day (on)"
-    trigger:
-      platform: numeric_state
-      entity_id: sensor.dark_sky_cloud_coverage
-      above: 80
-    condition:
-      - condition: state
-        entity_id: input_boolean.dark_mode
-        state: "off"
-      - condition: sun
-        after: sunrise
-      - condition: sun
-        before: sunset
-    action:
-      service: input_boolean.turn_on
-      entity_id: input_boolean.dark_mode
-
-  - alias: "Dark Mode: Clear Day (off)"
-    trigger:
-      platform: numeric_state
-      entity_id: sensor.dark_sky_cloud_coverage
-      below: 80
-    condition:
-      - condition: state
-        entity_id: input_boolean.dark_mode
-        state: "on"
-      - condition: sun
-        after: sunrise
-      - condition: sun
-        before: sunset
-    action:
-      service: input_boolean.turn_off
-      entity_id: input_boolean.dark_mode
 
 input_boolean:
   dark_mode:
