@@ -12,9 +12,9 @@ cards:
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
-            entity: device_tracker.rachel_iphone
+            entity: person.rachel
             name: Rachel
-            icon: mdi:cellphone-iphone
+            icon: mdi:account
             color_type: card
             action: more_info
             state:
@@ -24,9 +24,9 @@ cards:
                 color: rgb(100, 100, 100)
 
           - type: "custom:button-card"
-            entity: device_tracker.sean_iphone
+            entity: person.sean
             name: Sean
-            icon: mdi:cellphone-iphone
+            icon: mdi:account
             color_type: card
             action: more_info
             state:

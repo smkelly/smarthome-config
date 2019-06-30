@@ -8,18 +8,27 @@ filter:
     - binary_sensor.front_door
     - binary_sensor.guest_room_occupancy
     - binary_sensor.home_occupancy
+    - binary_sensor.master_bedroom_occupancy
+    - binary_sensor.nursery_occupancy
     - binary_sensor.office_occupancy
     - climate.home
     - group.bedroom_fan
     - group.family_room_lights
     - group.living_room_lamps
     - input_boolean.wakeup_lights
+    - person.rachel
+    - person.sean
+    - scene.astros
     - sensor.dark_sky_humidity
     - sensor.dark_sky_temperature
     - sensor.family_room_temperature
     - sensor.guest_room_temperature
     - sensor.home_humidity
+    - sensor.master_bedroom_temperature
+    - sensor.nursery_temperature
     - sensor.office_temperature
+    - switch.dark_mode
+    - switch.family_room_light_adjuster
     - switch.family_room_tree
     - switch.living_room_lamp_1
     - switch.living_room_lamp_2
