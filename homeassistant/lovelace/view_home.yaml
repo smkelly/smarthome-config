@@ -175,6 +175,3 @@ cards:
       - entity: binary_sensor.nursery_occupancy
         name: Occupancy
 
-  - type: weather-forecast
-    entity: weather.dark_sky
-

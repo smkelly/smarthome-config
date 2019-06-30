@@ -1,29 +1,33 @@
 platform: darksky
 api_key: !secret darksky_api_key
+scan_interval: "00:02:00"
 units: us
-forecast:
-  - 0
+forecast: [0, 1, 2, 3, 4, 5, 6, 7]
+hourly_forecast: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 monitored_conditions:
   - summary
+  - minutely_summary
   - hourly_summary
   - daily_summary
-  - temperature_low
+  - temperature
   - temperature_high
+  - temperature_low
+  - apparent_temperature
+  - apparent_temperature_high
+  - apparent_temperature_low
 #  - icon
 #  - nearest_storm_distance
 #  - nearest_storm_bearing
   - precip_type
   - precip_intensity
+  - precip_intensity_max
   - precip_probability
-  - temperature
-  - apparent_temperature
 #  - dew_point
   - wind_speed
+  - wind_gust
   - wind_bearing
   - cloud_cover
   - humidity
 #  - pressure
   - visibility
 #  - ozone
-  - minutely_summary
- 
