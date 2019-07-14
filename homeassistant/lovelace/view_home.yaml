@@ -83,10 +83,10 @@ cards:
       - light.front_door
     camera_image: camera.front_door
 
-  - type: vertical-stack
+  - type: custom:vertical-stack-in-card
+    title: Master Bedroom
     cards:
       - type: picture-entity
-        name: Master Bedroom
         entity: group.bedroom_fan
         show_info: false
         state_image:
