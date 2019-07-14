@@ -148,10 +148,6 @@ cards:
         name: Fan 4
         tap_action:
           action: toggle
-      - entity: light.office_light
-        name: Light
-        tap_action:
-          action: toggle
       - entity: sensor.office_temperature
         name: Temperature
       - entity: binary_sensor.office_occupancy
@@ -167,11 +163,21 @@ cards:
       - entity: binary_sensor.guest_room_occupancy
         name: Occupancy
 
-  - type: glance
+  - type: custom:vertical-stack-in-card
     title: Nursery
-    entities:
-      - entity: sensor.nursery_temperature
-        name: Temperature
-      - entity: binary_sensor.nursery_occupancy
-        name: Occupancy
+    cards:
+    - type: glance
+      entities:
+        - entity: sensor.nursery_temperature
+          name: Temperature
+        - entity: binary_sensor.nursery_occupancy
+          name: Occupancy
+        - entity: light.nursery_light
+          name: Light
+          tap_action:
+            action: toggle
+    - type: picture-entity
+      entity: camera.nursery_camera
+      show_name: false
+      show_state: false
 

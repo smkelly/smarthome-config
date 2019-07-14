@@ -1,1 +1,7 @@
 - platform: ring
+- platform: mjpeg
+  name: "Nursery Camera"
+  still_image_url: !secret camera_nursery_still_image_url
+  mjpeg_url: !secret camera_nursery_mjpeg_url
+  username: !secret camera_nursery_username
+  password: !secret camera_nursery_password

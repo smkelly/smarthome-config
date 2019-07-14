@@ -1,7 +1,9 @@
 titlm: Home
 resources:
-  - url: /local/button-card.js
+  - url: /local/button-card/button-card.js
     type: module
+  - url: /local/vertical-stack-in-card/vertical-stack-in-card.js
+    type: js
 views:
   - !include view_home.yaml
   - !include view_alarm.yaml

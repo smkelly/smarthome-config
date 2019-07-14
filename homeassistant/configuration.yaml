@@ -46,6 +46,7 @@ remote: !include conf/remote.yaml
 scene: !include_dir_list conf/scenes/
 script: !include_dir_named conf/scripts/
 sensor: !include_dir_list conf/sensors/
+stream:
 sun:
 system_health:
 tts: !include conf/tts.yaml
