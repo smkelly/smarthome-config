@@ -63,11 +63,17 @@ cards:
     title: Foyer
     show_name: true
     entities:
+      - entity: lock.front_door_deadbolt
+        name: Deadbolt
+        tap_action:
+          action: toggle
       - entity: binary_sensor.front_door
         name: Door
         icon: mdi:door
-      - light.front_door_1
-      - light.front_door_2
+      - entity: light.front_door_1
+        name: "Light 1"
+      - entity: light.front_door_2
+        name: "Light 2"
 
   - type: picture-glance
     title: Front Door

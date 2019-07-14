@@ -16,6 +16,7 @@ filter:
     - group.family_room_lights
     - group.living_room_lamps
     - input_boolean.wakeup_lights
+    - lock.front_door_deadbolt
     - person.rachel
     - person.sean
     - scene.astros
