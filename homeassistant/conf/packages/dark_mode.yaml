@@ -3,14 +3,16 @@ automation:
     trigger:
       - platform: sun
         event: sunset
-      - platform: state
-        entity_id: sensor.dark_sky_precip
       - platform: numeric_state
         entity_id: sensor.dark_sky_cloud_coverage
         above: 80
+      - platform: numeric_state
+        entity_id: sensor.dark_sky_precip_probability_0h
+        above: 50
     condition:
       condition: and
       conditions:
+        # dark_mode is off AND (Sun is set OR (cloudy AND likely to rain))
         - condition: state
           entity_id: input_boolean.dark_mode
           state: "off"
@@ -18,25 +20,15 @@ automation:
           conditions:
           - condition: sun
             after: sunset
-          - condition: state
-            entity_id:  sensor.dark_sky_precip
-            state: "rain"
-          - condition: state
-            entity_id:  sensor.dark_sky_precip
-            state: "sleet"
-          - condition: state
-            entity_id:  sensor.dark_sky_precip
-            state: "snow"
           - condition: and
-            # IF it is cloudy AND during the day
+            # IF it is cloudy AND a good chance of rain
             conditions:
             - condition: numeric_state
               entity_id: sensor.dark_sky_cloud_coverage
               above: 80
-            - condition: sun
-              after: sunrise
-            - condition: sun
-              before: sunset
+            - condition: numeric_state
+              entity_id: sensor.dark_sky_precip_probability_0h
+              above: 50
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.dark_mode
@@ -45,12 +37,12 @@ automation:
     trigger:
       - platform: sun
         event: sunrise
-      - platform: state
-        entity_id: sensor.dark_sky_precip
-        to: "unknown"
       - platform: numeric_state
         entity_id: sensor.dark_sky_cloud_coverage
-        below: 80
+        below: 70
+      - platform: numeric_state
+        entity_id: dark_sky_precip_probability_0h
+        below: 40
     condition:
       - condition: state
         entity_id: input_boolean.dark_mode
@@ -59,12 +51,14 @@ automation:
         after: sunrise
       - condition: sun
         before: sunset
-      - condition: state
-        entity_id: sensor.dark_sky_precip
-        state: "unknown"
-      - condition: numeric_state
-        entity_id: sensor.dark_sky_cloud_coverage
-        below: 80
+      - condition: or
+        conditions:
+          - condition: numeric_state
+            entity_id: sensor.dark_sky_cloud_coverage
+            below: 70
+          - condition: numeric_state
+            entity_id: sensor.dark_sky_precip_probability_0h
+            below: 40
     action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.dark_mode
