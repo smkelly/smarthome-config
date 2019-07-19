@@ -41,7 +41,7 @@ automation:
         entity_id: sensor.dark_sky_cloud_coverage
         below: 70
       - platform: numeric_state
-        entity_id: dark_sky_precip_probability_0h
+        entity_id: sensor.dark_sky_precip_probability_0h
         below: 40
     condition:
       - condition: state
