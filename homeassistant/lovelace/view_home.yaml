@@ -10,31 +10,36 @@ cards:
       icon: mdi:account
       color_type: card
       color: rgb(0, 100, 0)
-      color_off: rgb(100, 100, 100)
-      action: toggle
+      state:
+        - value: "off"
+          color: rgb(100, 100, 100)
     - type: "custom:button-card"
       entity: input_boolean.daily_vacuuming
       name: Daily
       icon: mdi:robot-vacuum
       color: rgb(0, 100, 0)
-      color_off: rgb(100, 100, 100)
+      state:
+        - value: "off"
+          color: rgb(100, 100, 100)
       color_type: card
-      action: toggle
     - type: "custom:button-card"
       entity: input_boolean.dark_mode
       name: "Dark"
       icon: mdi:weather-night
       color_type: card
       color: rgb(0, 100, 0)
-      color_off: rgb(100, 100, 100)
-      action: toggle
+      state:
+        - value: "off"
+          color: rgb(100, 100, 100)
     - type: "custom:button-card"
       entity: input_boolean.vacation_mode
       name: Vacation
       icon: mdi:airplane
       color_type: card
       color: rgb(0, 100, 0)
-      color_off: rgb(100, 100, 100)
+      state:
+        - value: "off"
+          color: rgb(100, 100, 100)
 
   - type: glance
     title: Family Room

@@ -16,7 +16,8 @@ cards:
             name: Rachel
             icon: mdi:account
             color_type: card
-            action: more_info
+            tap_action:
+              action: more-info
             state:
               - value: "home"
                 color: rgb(0, 0, 150)
@@ -28,7 +29,8 @@ cards:
             name: Sean
             icon: mdi:account
             color_type: card
-            action: more_info
+            tap_action:
+              action: more-info
             state:
               - value: "home"
                 color: rgb(0, 0, 150)
