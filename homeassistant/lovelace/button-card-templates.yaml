@@ -1,0 +1,87 @@
+mode_switch:
+  color_type: card
+  color: rgb(0, 100, 0)
+  state:
+    - value: "off"
+      color: rgb(100, 100, 100)
+
+occupancy:
+  name: Occupancy
+  tap_action:
+    action: more-info
+
+
+light:
+  name: Light
+  color: auto
+  tap_action:
+    action: toggle
+  hold_action:
+    action: more-info
+
+door:
+  show_name: false
+  show_state: true
+  show_last_changed: true
+  styles:
+    label:
+      - font-size: 10px
+  state:
+    - value: "on"
+      icon: mdi:door-open
+    - value: "off"
+      icon: mdi:door-closed
+  tap_action:
+    action: more-info
+
+lock:
+  show_last_changed: true
+  confirmation: "Are you sure you want to toggle the lock?"
+  styles:
+    label:
+      - font-size: 10px
+  state:
+    - value: "locked"
+      color: rgb(0, 255, 0)
+    - value: "unlocked"
+      color: rgb(255, 0, 0)
+      styles:
+        icon:
+          - animation: blink 5s ease infinite
+
+  tap_action:
+    action: toggle
+  hold_action:
+    action: more-info
+
+
+temp:
+  icon: mdi:thermometer
+  show_name: false
+  show_state: true
+  tap_action:
+    action: more-info
+
+room_temp:
+  template: temp
+  state:
+    - value: 78
+      operator: ">"
+      color: rgb(255, 0, 0)
+      icon: mdi:thermometer-alert
+      styles:
+        icon:
+          - animation: blink 2s ease infinite
+    - value: 74
+      operator: ">"
+      color: rgb(255, 0, 0)
+    - value: 68
+      operator: "<"
+      color: rgb(0, 0, 255)
+    - value: 64
+      operator: "<"
+      color: rgb(0, 0, 255)
+      icon: mdi:thermometer-alert
+      styles:
+        icon:
+          - animation: blink 2s ease infinite

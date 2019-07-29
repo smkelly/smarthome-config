@@ -1,92 +1,68 @@
 title: Home
 id: home
 icon: mdi:home
-cards:
-  - type: horizontal-stack
+cards:  
+  - type: "custom:vertical-stack-in-card"
+    title: "Family Room"
     cards:
-    - type: "custom:button-card"
-      entity: input_boolean.presence_detection
-      name: Presence
-      icon: mdi:account
-      color_type: card
-      color: rgb(0, 100, 0)
-      state:
-        - value: "off"
-          color: rgb(100, 100, 100)
-    - type: "custom:button-card"
-      entity: input_boolean.daily_vacuuming
-      name: Daily
-      icon: mdi:robot-vacuum
-      color: rgb(0, 100, 0)
-      state:
-        - value: "off"
-          color: rgb(100, 100, 100)
-      color_type: card
-    - type: "custom:button-card"
-      entity: input_boolean.dark_mode
-      name: "Dark"
-      icon: mdi:weather-night
-      color_type: card
-      color: rgb(0, 100, 0)
-      state:
-        - value: "off"
-          color: rgb(100, 100, 100)
-    - type: "custom:button-card"
-      entity: input_boolean.vacation_mode
-      name: Vacation
-      icon: mdi:airplane
-      color_type: card
-      color: rgb(0, 100, 0)
-      state:
-        - value: "off"
-          color: rgb(100, 100, 100)
+    - type: horizontal-stack
+      cards:
+        - type: "custom:button-card"
+          entity: group.family_room_lights
+          name: Fan
+        - type: "custom:button-card"
+          entity: switch.family_room_light_adjuster
+          name: Adjuster
+        - type: "custom:button-card"
+          entity: sensor.family_room_temperature
+          template: room_temp
+    - type: horizontal-stack
+      cards:
+        - type: "custom:button-card"
+          entity: binary_sensor.family_room_occupancy
+          name: Occupancy
+        - type: "custom:button-card"
+          entity: remote.family_room
+          name: Remote
+        - type: "custom:button-card"
+          entity: switch.scentsy_switch
+          name: Scentsy
 
-  - type: glance
-    title: Family Room
-    column_width: calc(100% / 3)
-    entities:
-      - entity: group.family_room_lights
-        name: Lights
-        icon: mdi:fan
-        tap_action:
-          action: toggle
-      - entity: switch.family_room_light_adjuster
-        name: Light Adjuster
-        icon: mdi:weather-sunset
-      - entity: sensor.family_room_temperature
-        name: Temperature
-      - entity: binary_sensor.family_room_occupancy
-        name: Occupancy
-      - entity: remote.family_room
-        name: Remote
-      - entity: switch.scentsy_switch
-        icon: mdi:flower
-        tap_action:
-          action: toggle
-
-  - type: glance
+  - type: "custom:vertical-stack-in-card"
     title: Foyer
-    show_name: true
-    entities:
-      - entity: lock.front_door_deadbolt
-        name: Deadbolt
-        tap_action:
-          action: toggle
-      - entity: binary_sensor.front_door
-        name: Door
-        icon: mdi:door
-      - entity: light.front_door_1
-        name: "Light 1"
-      - entity: light.front_door_2
-        name: "Light 2"
-
-  - type: picture-glance
-    title: Front Door
-    entities:
-      - binary_sensor.ring_front_door_motion
-      - binary_sensor.ring_front_door_ding
-      - light.front_door
-    camera_image: camera.front_door
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: lock.front_door_deadbolt
+            name: Deadbolt
+            template: lock
+          - type: "custom:button-card"
+            entity: binary_sensor.front_door
+            template: door
+          - type: "custom:button-card"
+            entity: light.front_door_1
+            name: 1
+            template: light
+          - type: "custom:button-card"
+            entity: light.front_door_2
+            name: 2
+            template: light
+      - type: picture-entity
+        title: Doorbell Video
+        entity: camera.front_door
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            entity: binary_sensor.ring_front_door_motion
+            icon: mdi:motion-sensor
+            show_name: false
+            show_last_changed: true
+          - type: custom:button-card
+            entity: binary_sensor.ring_front_door_ding
+            icon: mdi:bell-ring
+            show_name: false
+            show_last_changed: true
 
   - type: custom:vertical-stack-in-card
     title: Master Bedroom
@@ -99,15 +75,21 @@ cards:
           'off': !file /local/master_bedroom_off.png
         tap_action:
           action: toggle
-      - type: glance
-        show_name: false
-        entities:
-          - entity: sensor.master_bedroom_temperature
-          - entity: light.master_hall
-            icon: mdi:door
-          - entity: binary_sensor.master_bedroom_occupancy
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: sensor.master_bedroom_temperature
+            template: room_temp
+          - type: "custom:button-card"
+            entity: light.master_hall
+            name: Hall
+            template: light
+          - type: "custom:button-card"
+            entity: binary_sensor.master_bedroom_occupancy
+            name: Occupancy
 
-  - type: vertical-stack
+  - type: custom:vertical-stack-in-card
+    title: Living Room
     cards:
     - type: picture-entity
       entity: light.bar_lights_level
@@ -116,7 +98,6 @@ cards:
         'off': !file /local/bar_lights_off.png
       tap_action:
         action: toggle
-
     - type: picture-entity
       name: Lamps
       entity: group.living_room_lamps
@@ -125,70 +106,99 @@ cards:
         'off': !file /local/living_room_lamps_off.png
       tap_action:
         action: toggle
+    - type: horizontal-stack
+      cards:
+        - type: custom:button-card
+          entity: sensor.living_room_temperature
+          template: room_temp
+        - type: custom:button-card
+          entity: binary_sensor.living_room_occupancy
+          template: occupancy
 
-  - type: thermostat
-    entity: climate.home
-    name: Thermostat
-
-  - type: glance
+  - type: "custom:vertical-stack-in-card"
     title: Hall
-    entities:
-      - entity: sensor.home_temperature
-        name: Temperature
-      - entity: sensor.home_humidity
-        name: Humidity
-      - entity: binary_sensor.home_occupancy
-        name: Occupancy
+    cards:
+      - type: thermostat
+        entity: climate.home
+        name: Thermostat
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: sensor.home_temperature
+            template: room_temp
+          - type: "custom:button-card"
+            entity: sensor.home_humidity
+            icon: mdi:water
+            show_name: false
+            show_state: true
+          - type: "custom:button-card"
+            entity: binary_sensor.home_occupancy
+            template: occupancy
 
-  - type: glance
+  - type: "custom:vertical-stack-in-card"
     title: Office
-    entities:
-      - entity: light.office_1
-        name: Fan 1
-        tap_action:
-          action: toggle
-      - entity: light.office_2
-        name: Fan 2
-        tap_action:
-          action: toggle
-      - entity: light.office_3
-        name: Fan 3
-        tap_action:
-          action: toggle
-      - entity: light.office_4
-        name: Fan 4
-        tap_action:
-          action: toggle
-      - entity: sensor.office_temperature
-        name: Temperature
-      - entity: binary_sensor.office_occupancy
-        name: Occupancy
-      - entity: vacuum.roomba
-        name: Roomba
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: light.office_1
+            name: 1
+            template: light
+          - type: "custom:button-card"
+            entity: light.office_2
+            name: 2
+            template: light
+          - type: "custom:button-card"
+            entity: light.office_3
+            name: 3
+            template: light
+          - type: "custom:button-card"
+            entity: light.office_4
+            name: 4
+            template: light
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: sensor.office_temperature
+            template: room_temp
+          - type: "custom:button-card"
+            entity: binary_sensor.office_occupancy
+            template: occupancy
+          - type: "custom:button-card"
+            entity: vacuum.roomba
+            name: Roomba
+          - type: "custom:button-card"
+            card_type: blank-card
 
-  - type: glance
+
+  - type: "custom:vertical-stack-in-card"
     title: Guest Room
-    entities:
-      - entity: sensor.guest_room_temperature
-        name: Temperature
-      - entity: binary_sensor.guest_room_occupancy
-        name: Occupancy
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: sensor.guest_room_temperature
+            template: room_temp
+          - type: "custom:button-card"
+            entity: binary_sensor.guest_room_occupancy
+            template: occupancy
 
   - type: custom:vertical-stack-in-card
     title: Nursery
     cards:
-    - type: glance
-      entities:
-        - entity: sensor.nursery_temperature
-          name: Temperature
-        - entity: binary_sensor.nursery_occupancy
-          name: Occupancy
-        - entity: light.nursery_light
-          name: Light
-          tap_action:
-            action: toggle
-    - type: picture-entity
-      entity: camera.nursery_camera
-      show_name: false
-      show_state: false
+      - type: picture-entity
+        entity: camera.nursery_camera
+        show_name: false
+        show_state: false
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: sensor.nursery_temperature
+            template: room_temp
+          - type: "custom:button-card"
+            entity: binary_sensor.nursery_occupancy
+            template: occupancy
+          - type: "custom:button-card"
+            entity: light.nursery_light
+            template: light
 

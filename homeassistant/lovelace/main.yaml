@@ -9,3 +9,5 @@ views:
   - !include view_alarm.yaml
   - !include view_media.yaml
   - !include view_controls.yaml
+
+button_card_templates: !include button-card-templates.yaml
