@@ -47,7 +47,7 @@ While [Home Assistant] is the primary component of my smart home, there are othe
 * Logitech [Harmony Hub] with Companion Remote
 * ecobee 3 Thermostat and Remote Sensors
 * Amcrest [IP4M-1051W] camera
-* RainMachine Pro-16 sprinkler controller
+* [RainMachine Pro-16] sprinkler controller
 * 2 x [Turn Touch] remotes
 
 <!-- Software -->
@@ -80,4 +80,5 @@ While [Home Assistant] is the primary component of my smart home, there are othe
 [Apple TV 4]: https://www.amazon.com/Apple-TV-32GB-4th-generation/dp/B075NFX24M/
 [Harmony Hub]: https://amzn.to/2SQkD2H
 [IP4M-1051W]: https://amzn.to/2YnK8K0
+[RainMachine Pro-16]: https://shop.rainmachine.com/products/rainmachine-pro-16
 [Turn Touch]: https://shop.turntouch.com
