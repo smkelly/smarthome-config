@@ -2,6 +2,11 @@
   platform: twilio_sms
   from_number: !secret twilio_number
 
+- name: ios_smkelly
+  platform: group
+  services:
+    service: "mobile_app_sean_s_iphone_x"
+  
 - name: smkelly_sms
   platform: group
   services:
