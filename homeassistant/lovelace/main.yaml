@@ -1,6 +1,6 @@
 titlm: Home
 resources:
-  - url: /local/button-card/dist/button-card.js
+  - url: /local/button-card/dist/button-card.js?v=2.0.5
     type: module
   - url: /local/compact-custom-header/compact-custom-header.js?v=1.3.5
     type: module
