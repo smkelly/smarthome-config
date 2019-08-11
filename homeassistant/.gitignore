@@ -4,6 +4,7 @@
 .ring_cache.pickle
 .storage/
 .uuid
+*.pickle
 OZW_Log.txt
 deps/
 ecobee.conf
