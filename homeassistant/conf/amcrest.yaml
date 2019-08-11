@@ -1,0 +1,12 @@
+- host: !secret amcrest_nurserycam_host
+  username: !secret amcrest_nurserycam_username
+  password: !secret amcrest_nurserycam_password
+  name: "NurseryCam"
+  stream_source: rtsp
+  ffmpeg_arguments: "-acodec copy -vcodec copy"
+  binary_sensors:
+    - motion_detected
+    - online
+  sensors:
+    - sdcard
+    - ptz_preset

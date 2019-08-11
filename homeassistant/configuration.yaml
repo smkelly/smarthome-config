@@ -11,6 +11,7 @@ homeassistant:
 
 alarm_control_panel: !include conf/alarm_control_panel.yaml
 alexa:
+amcrest: !include conf/amcrest.yaml
 automation: !include_dir_list conf/automations/
 binary_sensor: !include_dir_list conf/binary_sensors/
 camera: !include conf/cameras.yaml
