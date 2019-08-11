@@ -2,12 +2,30 @@ titlm: Home
 resources:
   - url: /local/button-card/dist/button-card.js
     type: module
+  - url: /local/compact-custom-header/compact-custom-header.js?v=1.3.5
+    type: module
   - url: /local/vertical-stack-in-card/vertical-stack-in-card.js
     type: js
-views:
-  - !include view_home.yaml
-  - !include view_alarm.yaml
-  - !include view_media.yaml
-  - !include view_controls.yaml
 
 button_card_templates: !include button-card-templates.yaml
+
+cch:
+  compact_header: true
+  hide_help: true
+  hide_config: true
+  hide_unused: true
+  options: clock
+  swipe: true
+  swipe_animate: flip
+  exceptions:
+    - conditions:
+        query_string: kiosk
+      config:
+        kiosk_mode: true
+
+views:
+  - !include view_home.yaml
+#  - !include view_alarm.yaml
+  - !include view_sprinklers.yaml
+  - !include view_media.yaml
+  - !include view_controls.yaml

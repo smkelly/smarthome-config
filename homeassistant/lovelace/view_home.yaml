@@ -1,7 +1,7 @@
 title: Home
-id: home
+path: home
 icon: mdi:home
-cards:  
+cards:
   - type: "custom:vertical-stack-in-card"
     title: "Family Room"
     cards:

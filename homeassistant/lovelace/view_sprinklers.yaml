@@ -1,0 +1,59 @@
+title: Sprinklers
+id: Sprinklers
+icon: mdi:water
+cards:
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            entity: binary_sensor.freeze_restrictions
+          - type: custom:button-card
+            entity: binary_sensor.rain_delay_restrictions
+
+  - type: custom:vertical-stack-in-card
+    title: Programs
+    cards:
+      - type: custom:button-card
+        template: sprinkler
+        entity: switch.water_stuff
+
+  - type: custom:vertical-stack-in-card
+    title: Zones
+    cards:
+      - type: custom:button-card
+        template: sprinkler
+        entity: switch.east_side_bed_and_grass
+
+      - type: custom:button-card
+        template: sprinkler
+        entity: switch.esplanade_and_walk_triangle
+
+      - type: custom:button-card
+        template: sprinkler
+        entity: switch.front_bed
+
+      - type: custom:button-card
+        template: sprinkler
+        entity: switch.center_north_front_rotaries
+        
+      - type: custom:button-card
+        template: sprinkler
+        entity: switch.center_south_front_rotaries
+  
+      - type: custom:button-card
+        template: sprinkler
+        entity: switch.west_front_street_to_gate
+
+      - type: custom:button-card
+        template: sprinkler
+        entity: switch.west_side_and_courtyard
+
+      - type: custom:button-card
+        template: sprinkler
+        entity: switch.north_side_back_grass_rotaries
+
+      - type: custom:button-card
+        template: sprinkler
+        entity: switch.south_side_back_grass_rotaries
+

@@ -1,3 +1,21 @@
+room_toggle:
+  color_type: card
+  state:
+    - value: "on"
+      icon: mdi:toggle-switch
+      color: rgb(0, 100, 0)
+    - value: "off"
+      icon: mdi:toggle-switch-off
+      #color: rgb(0, 0, 0)
+  styles:
+    grid:
+      - grid-template-areas: '"n i"'
+      - grid-template-columns: 2fr 1fr 
+      - grid-template-rows: 1fr
+    name:
+      - font-size: 32px
+      - font-weight: bold
+
 mode_switch:
   color_type: card
   color: rgb(0, 100, 0)
@@ -7,9 +25,31 @@ mode_switch:
 
 occupancy:
   name: Occupancy
+  color: rgb(80, 80, 80)]
+  icon: mdi:account-outline
+  show_state: true
   tap_action:
     action: more-info
+  state:
+    - value: "home"
+      color: rgb(0, 100, 0)
+      icon: mdi:account
 
+sprinkler:
+  layout: icon_name
+  icon: mdi:water-outline
+  tap_action:
+    action: toggle
+    haptic: heavy
+  hold-action:
+    action: more-info
+  state:
+    - value: "on"
+      icon: mdi:water
+      color: blue
+    - value: "off"
+      icon: mdi:water-outline
+      color: gray      
 
 light:
   name: Light
@@ -48,7 +88,6 @@ lock:
       styles:
         icon:
           - animation: blink 5s ease infinite
-
   tap_action:
     action: toggle
   hold_action:

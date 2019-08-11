@@ -1,5 +1,5 @@
 title: Alarm
-id: alarm
+path: alarm
 icon: mdi:home-alert
 cards:
   - type: alarm-panel

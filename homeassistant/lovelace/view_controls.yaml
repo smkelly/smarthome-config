@@ -1,5 +1,5 @@
-title: Controls
-id: controls
+title: Settings
+path: settings
 icon: mdi:settings
 cards:
   - type: horizontal-stack
@@ -29,7 +29,7 @@ cards:
     cards:
       - type: "custom:button-card"
         color_type: label-card
-        color: rgb(0, 0, 150)
+        color: rgb(0, 0, 50)
         name: "Occupancy"
 
       - type: horizontal-stack
@@ -37,28 +37,11 @@ cards:
           - type: "custom:button-card"
             entity: person.rachel
             name: Rachel
-            icon: mdi:account
-            color_type: card
-            tap_action:
-              action: more-info
-            state:
-              - value: "home"
-                color: rgb(0, 0, 150)
-              - value: "not_home"
-                color: rgb(100, 100, 100)
-
+            template: occupancy
           - type: "custom:button-card"
             entity: person.sean
             name: Sean
-            icon: mdi:account
-            color_type: card
-            tap_action:
-              action: more-info
-            state:
-              - value: "home"
-                color: rgb(0, 0, 150)
-              - value: "not_home"
-                color: rgb(100, 100, 100)
+            template: occupancy
 
   - type: glance
     title: Alarm Clock
