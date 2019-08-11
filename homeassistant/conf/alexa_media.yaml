@@ -1,0 +1,8 @@
+accounts:
+  - email: !secret amazon_email
+    password: !secret amazon_password
+    url: amazon.com
+    include_devices:
+      - "Bedroom"
+      - "Office"
+      - "Family Room"
