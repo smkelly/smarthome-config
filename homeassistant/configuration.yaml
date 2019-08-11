@@ -22,6 +22,8 @@ ecobee: !include conf/ecobee.yaml
 ffmpeg:
 frontend: !include conf/frontend.yaml
 group: !include_dir_named conf/groups/
+hacs:
+  token: !secret hacs_token
 history: !include conf/history.yaml
 http: !include conf/http.yaml
 homekit: !include conf/homekit.yaml
