@@ -7,3 +7,6 @@
 [submodule "homeassistant/www/vertical-stack-in-card"]
 	path = homeassistant/www/vertical-stack-in-card
 	url = https://github.com/custom-cards/vertical-stack-in-card
+[submodule "homeassistant/www/compact-custom-header"]
+	path = homeassistant/www/compact-custom-header
+	url = https://github.com/maykar/compact-custom-header

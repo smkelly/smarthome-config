@@ -27,6 +27,7 @@ While [Home Assistant] is the primary component of my smart home, there are othe
 * [Intel NUC] NUC7i3BNHXF: The hardware platform running all of the software.
 * [Philips Hue bridge] (2nd Generation) and bulbs
 * Z-Wave switches and sensors
+  * Aeotec [Z-Stick Gen5]
 * [Yale Real Living YRD216ZW2619] Assure Lock Push Button Deadbolt with Z-Wave
 * [Ring Video Doorbell 2] with indoor [Ring Chime]
 * 3 x Ubiquiti [UniFi UAP-AC-PRO]s
@@ -82,3 +83,5 @@ While [Home Assistant] is the primary component of my smart home, there are othe
 [IP4M-1051W]: https://amzn.to/2YnK8K0
 [RainMachine Pro-16]: https://shop.rainmachine.com/products/rainmachine-pro-16
 [Turn Touch]: https://shop.turntouch.com
+<!-- Z-Wave -->
+[Z-Stick Gen5]: https://amzn.to/2GAbAOy
