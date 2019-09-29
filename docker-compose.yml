@@ -45,7 +45,7 @@ services:
 
   hass:
     container_name: hass
-    image: homeassistant/home-assistant:0.96.5
+    image: homeassistant/home-assistant:0.99.3
     volumes:
       - /opt/smarthome/homeassistant/:/config
       - /etc/localtime:/etc/localtime:ro
