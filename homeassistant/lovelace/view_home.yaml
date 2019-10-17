@@ -201,4 +201,9 @@ cards:
           - type: "custom:button-card"
             entity: light.nursery_light
             template: light
-
+  - type: custom:vertical-stack-in-card
+    title: Garage
+    cards:
+      - type: "custom:button-card"
+        entity: cover.garage_door
+        template: garage

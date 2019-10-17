@@ -93,6 +93,27 @@ lock:
   hold_action:
     action: more-info
 
+garage:
+  show_last_changed: true
+  confirmation: "Are you sure you want to toggle the garage door?"
+  styles:
+    label:
+      - font-size: 10px
+  state:
+    - value: "closed"
+      color: rgb(0, 255, 0)
+      icon: mdi:garage
+    - value: "open"
+      color: rgb(255, 0, 0)
+      icno: mdi:garage-open
+      styles:
+        icon:
+          - animation: blink 5s ease infinite
+  tap_action:
+    action: toggle
+  hold_action:
+    action: more-info
+
 
 temp:
   icon: mdi:thermometer

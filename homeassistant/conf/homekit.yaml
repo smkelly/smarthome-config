@@ -2,6 +2,7 @@ auto_start: false
 port: 51827
 filter:
   include_domains:
+    - cover
     - light
   include_entities:
     - binary_sensor.family_room_occupancy
