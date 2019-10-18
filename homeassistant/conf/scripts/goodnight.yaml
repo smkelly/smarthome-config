@@ -1,4 +1,7 @@
 alias: "Goodnight"
 sequence:
-  service: scene.turn_on
-  entity_id: scene.bed_time
+  - service: lock.lock
+    entity_id: lock.front_door_deadbolt
+  - service: scene.turn_on
+    entity_id: scene.bed_time
+
