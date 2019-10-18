@@ -9,6 +9,8 @@ condition:
   entity_id: input_boolean.presence_detection
   state: 'on'
 action:
+  - service: lock.lock
+    entity_id: lock.front_door_deadbolt
   - service: light.turn_off
   - service: homeassistant.turn_off
     entity_id:
