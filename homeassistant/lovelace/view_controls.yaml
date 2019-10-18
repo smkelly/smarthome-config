@@ -1,6 +1,5 @@
 title: Settings
 path: settings
-icon: mdi:settings
 cards:
   - type: horizontal-stack
     cards:

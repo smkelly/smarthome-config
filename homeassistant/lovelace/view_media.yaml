@@ -1,6 +1,5 @@
 title: Media
 id: media
-icon: mdi:surround-sound
 cards:
   - type: media-control
     entity: media_player.family_room

@@ -1,6 +1,5 @@
 title: Sprinklers
 id: Sprinklers
-icon: mdi:water
 cards:
   - type: vertical-stack
     cards:
