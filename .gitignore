@@ -3,5 +3,7 @@ __pycache__
 .env
 .vscode/
 HASS.code-workspace
+influxdb/data/
 nodered/
 secrets.yaml
+*.db
