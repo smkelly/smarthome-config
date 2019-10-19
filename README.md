@@ -50,6 +50,7 @@ While [Home Assistant] is the primary component of my smart home, there are othe
 * Amcrest [IP4M-1051W] camera
 * [RainMachine Pro-16] sprinkler controller
 * 2 x [Turn Touch] remotes
+* [LiftMaster WLED] DC Battery Backup Belt Drive LED Wi-Fi Garage Door Opener
 
 <!-- Software -->
 [Home Assistant]: https://home-assistant.io
@@ -83,5 +84,6 @@ While [Home Assistant] is the primary component of my smart home, there are othe
 [IP4M-1051W]: https://amzn.to/2YnK8K0
 [RainMachine Pro-16]: https://shop.rainmachine.com/products/rainmachine-pro-16
 [Turn Touch]: https://shop.turntouch.com
+[LiftMaster WLED]: https://www.liftmaster.com/led-light-garage-door-opener/p/WLED
 <!-- Z-Wave -->
 [Z-Stick Gen5]: https://amzn.to/2GAbAOy
