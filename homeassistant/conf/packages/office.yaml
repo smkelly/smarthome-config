@@ -3,7 +3,6 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - light.office_light
           - light.office_1
           - light.office_2
           - light.office_3
@@ -17,7 +16,7 @@ automation:
       service: light.turn_on
       data_template:
         entity_id: "{{ trigger.entity_id }}"
-        color_name: "white"
+        kelvin: 2700
         brightness: 255
         transition: 0
 
