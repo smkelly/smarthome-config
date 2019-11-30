@@ -4,11 +4,8 @@ automation:
       - platform: sun
         event: sunset
       - platform: numeric_state
-        entity_id: sensor.dark_sky_cloud_coverage
-        above: 80
-      - platform: numeric_state
-        entity_id: sensor.dark_sky_precip_probability_0h
-        above: 50
+        entity_id: sensor.backyard_floodlight_luminance
+        below: 100
     condition:
       condition: and
       conditions:
@@ -20,15 +17,9 @@ automation:
           conditions:
           - condition: sun
             after: sunset
-          - condition: and
-            # IF it is cloudy AND a good chance of rain
-            conditions:
-            - condition: numeric_state
-              entity_id: sensor.dark_sky_cloud_coverage
-              above: 80
-            - condition: numeric_state
-              entity_id: sensor.dark_sky_precip_probability_0h
-              above: 50
+          - condition: numeric_state
+            entity_id: sensor.backyard_floodlight_luminance
+            below: 100
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.dark_mode
@@ -38,11 +29,8 @@ automation:
       - platform: sun
         event: sunrise
       - platform: numeric_state
-        entity_id: sensor.dark_sky_cloud_coverage
-        below: 70
-      - platform: numeric_state
-        entity_id: sensor.dark_sky_precip_probability_0h
-        below: 40
+        entity_id: sensor.backyard_floodlight_luminance
+        above: 100
     condition:
       - condition: state
         entity_id: input_boolean.dark_mode
@@ -51,14 +39,9 @@ automation:
         after: sunrise
       - condition: sun
         before: sunset
-      - condition: or
-        conditions:
-          - condition: numeric_state
-            entity_id: sensor.dark_sky_cloud_coverage
-            below: 70
-          - condition: numeric_state
-            entity_id: sensor.dark_sky_precip_probability_0h
-            below: 40
+      - condition: numeric_state
+        entity_id: sensor.backyard_floodlight_luminance
+        above: 100
     action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.dark_mode
@@ -66,4 +49,4 @@ automation:
 input_boolean:
   dark_mode:
     name: Dark Mode
-
+    
