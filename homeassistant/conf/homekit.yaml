@@ -5,6 +5,7 @@ filter:
     - cover
     - light
   include_entities:
+    - binary_sensor.backyard_motion
     - binary_sensor.family_room_occupancy
     - binary_sensor.front_door
     - binary_sensor.guest_room_occupancy
@@ -21,6 +22,7 @@ filter:
     - person.rachel
     - person.sean
     - scene.astros
+    - sensor.backyard_floodlight_luminance
     - sensor.dark_sky_humidity
     - sensor.dark_sky_temperature
     - sensor.family_room_temperature
@@ -29,6 +31,7 @@ filter:
     - sensor.master_bedroom_temperature
     - sensor.nursery_temperature
     - sensor.office_temperature
+    - switch.backyard_floodlight
     - switch.dark_mode
     - switch.family_room_light_adjuster
     - switch.family_room_tree
