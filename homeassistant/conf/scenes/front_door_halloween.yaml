@@ -1,4 +1,4 @@
-name: Front Door 10
+name: Front Door Halloween
 entities:
   light.front_door_1:
     state: on

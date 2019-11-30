@@ -1,4 +1,4 @@
-name: Front Door 12
+name: Front Door Christmas
 entities:
   light.front_door_1:
     state: on

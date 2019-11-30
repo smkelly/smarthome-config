@@ -44,7 +44,7 @@ automation:
             {% set scn = "flag" %}
           {% elif day|int in range(1024, 1032) %}
             {% set scn = "halloween" %}
-          {% elif day|int in range(1201, 1231) %}
+          {% elif day|int in range(1129, 1231) %}
             {% set scn = "christmas" %}
           {% else %}
             {% set scn = "normal" %}
