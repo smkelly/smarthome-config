@@ -20,7 +20,7 @@ cards:
       cards:
         - type: "custom:button-card"
           entity: binary_sensor.family_room_occupancy
-          name: Occupancy
+          template: occupancy
         - type: "custom:button-card"
           entity: remote.family_room
           name: Remote
@@ -86,7 +86,7 @@ cards:
             template: light
           - type: "custom:button-card"
             entity: binary_sensor.master_bedroom_occupancy
-            name: Occupancy
+            template: occupancy
 
   - type: custom:vertical-stack-in-card
     title: Living Room

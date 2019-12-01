@@ -25,7 +25,7 @@ mode_switch:
 
 occupancy:
   name: Occupancy
-  color: rgb(80, 80, 80)]
+  color: rgb(80, 80, 80)
   icon: mdi:account-outline
   show_state: true
   tap_action:
@@ -34,6 +34,14 @@ occupancy:
     - value: "home"
       color: rgb(0, 100, 0)
       icon: mdi:account
+    - value: "on"
+      color: rgb(0, 100, 0)
+      icon: mdi:account
+
+    - value: "on"
+      color: rgb(0, 100, 0)
+      icon: mdi:account
+
 
 sprinkler:
   layout: icon_name
