@@ -207,3 +207,26 @@ cards:
       - type: "custom:button-card"
         entity: cover.garage_door
         template: garage
+  - type: custom:vertical-stack-in-card
+    title: Backyard
+    cards:
+      - type: "custom:button-card"
+        entity: switch.backyard_floodlight
+        template: light
+        name: Floodlight
+        icon: mdi:spotlight-beam
+      - type: "custom:button-card"
+        entity: binary_sensor.backyard_motion
+        name: Motion
+        icon: mdi:motion-sensor
+        show_last_changed: true
+      - type: gauge
+        entity: sensor.backyard_floodlight_luminance
+        name: Luminance
+        unit: lux
+        min: 0
+        max: 250
+        severity:
+          green: 250
+          yellow: 100
+          red: 0
