@@ -43,6 +43,7 @@ lovelace: !include conf/lovelace.yaml
 map:
 media_player:
 mobile_app:
+netatmo: !include conf/netatmo.yaml
 notify: !include conf/notifiers.yaml
 person:
 rainmachine: !include conf/rainmachine.yaml

@@ -29,6 +29,10 @@ filter:
     - sensor.guest_room_temperature
     - sensor.home_humidity
     - sensor.master_bedroom_temperature
+    - sensor.netatmo_kellys_weather_backyard_humidity
+    - sensor.netatmo_kellys_weather_backyard_temperature
+    - sensor.netatmo_kellys_weather_family_room_co2
+    - sensor.netatmo_kellys_weather_family_room_humidity
     - sensor.nursery_temperature
     - sensor.office_temperature
     - switch.backyard_floodlight
