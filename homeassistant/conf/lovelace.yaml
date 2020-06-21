@@ -1,1 +1,6 @@
 mode: yaml
+resources:
+  - url: /local/button-card/dist/button-card.js?v=3.3.6
+    type: module
+  - url: /local/vertical-stack-in-card/vertical-stack-in-card.js?v=0.3.3
+    type: js
