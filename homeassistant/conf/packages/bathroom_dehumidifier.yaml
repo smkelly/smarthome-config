@@ -1,0 +1,44 @@
+# Control the dehumidifier in the master bathroom.
+#
+# * Turn it on when sleeping ends.
+# * Turn it off when sleeping starts.
+# * Turn it on at 10AM if it isn't already on.
+
+automation:
+  - alias: "Bathroom Dehumidifier: Wake up and turn on"
+    trigger:
+      platform: state
+      entity_id: input_boolean.sleeping
+      to: "off"
+    condition:
+      condition: state
+      entity_id: switch.bathroom_dehumidifier
+      state: "off"
+    action:
+      service: switch.turn_on
+      entity_id: switch.bathroom_dehumidifier
+
+  - alias: "Bathroom Dehumidifier: Fallback turn on"
+    trigger:
+      platform: time
+      at: "10:00:00"
+    condition:
+      condition: state
+      entity_id: switch.bathroom_dehumidifier
+      state: "off"
+    action:
+      service: switch.turn_on
+      entity_id: switch.bathroom_dehumidifier
+
+  - alias: "Bathroom Dehumidifier: Bed time and turn off"
+    trigger:
+      platform: state
+      entity_id: input_boolean.sleeping
+      to: "on"
+    condition:
+      condition: state
+      entity_id: switch.bathroom_dehumidifier
+      state: "on"
+    action:
+      service: switch.turn_off
+      entity_id: switch.bathroom_dehumidifier

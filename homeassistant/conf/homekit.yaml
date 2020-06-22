@@ -24,6 +24,7 @@ filter:
     - sensor.netatmo_kellys_weather_family_room_noise
     - sensor.netatmo_kellys_weather_family_room_temperature
     - switch.backyard_floodlight
+    - switch.bathroom_dehumidifier
     - switch.dark_mode
     - switch.family_room_light_adjuster
     - switch.family_room_tree
