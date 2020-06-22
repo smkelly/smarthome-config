@@ -19,5 +19,6 @@ action:
       - remote.family_room
       - switch.scentsy_switch
       - switch.family_room_tree
+      - switch.kitchen_lights
       - switch.living_room_tree
   - event: my_presence_away

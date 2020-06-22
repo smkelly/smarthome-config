@@ -88,6 +88,8 @@ script:
   wakeup:
     alias: "Wake Up"
     sequence:
+      - service: switch.turn_on
+        entity_id: switch.kitchen_lights
       - service: light.turn_on
         entity_id: light.master_1
         data:

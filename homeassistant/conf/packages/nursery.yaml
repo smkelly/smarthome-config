@@ -1,0 +1,23 @@
+automation:
+  - alias: "Notify on nursery light on"
+    trigger:
+      platform: state
+      entity_id: light.nursery_light
+      to: "on"
+    action:
+      service: script.inovelli_notify
+      data:
+        entity_id: "zwave.kitchen_lights"
+        color: "red"
+  
+  - alias: "Notify on nursery light off"
+    trigger:
+      platform: state
+      entity_id: light.nursery_light
+      to: "off"
+    action:
+      service: script.inovelli_notify
+      data:
+        entity_id: "zwave.kitchen_lights"
+        effect: "off"
+

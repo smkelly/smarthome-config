@@ -39,6 +39,7 @@ filter:
     - switch.dark_mode
     - switch.family_room_light_adjuster
     - switch.family_room_tree
+    - switch.kitchen_lights
     - switch.living_room_lamp_1
     - switch.living_room_lamp_2
     - switch.living_room_tree

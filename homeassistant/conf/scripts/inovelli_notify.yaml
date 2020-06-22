@@ -1,0 +1,78 @@
+# Inspired by https://brianhanifin.com/posts/inovelli-dimmer-status-led-home-assistant/
+alias: "Inovelli Notify"
+sequence:
+  - service: zwave.set_config_parameter
+    data_template:
+      node_id: "{{ state_attr(entity_id, 'node_id') }}"
+      parameter: >
+        {{ "8" if "LZW30-SN" in state_attr(entity_id, "product_name") else "16" }}
+      size: 4
+      value: >
+        {% if effect|lower == "off" %}
+          0
+        {% else %}
+          {% set colors = {
+            "red": 1,
+            "orange": 21,
+            "yellow": 42,
+            "green": 85,
+            "cyan": 127,
+            "blue": 170,
+            "purple": 195,
+            "pink": 234
+          } %}
+          {% set durations = {
+            "1s": 1,
+            "2s": 2,
+            "3s": 3,
+            "4s": 4,
+            "5s": 5,
+            "6s": 6,
+            "7s": 7,
+            "8s": 8,
+            "9s": 9,
+            "10s": 10,
+            "15s": 15,
+            "20s": 20,
+            "25s": 25,
+            "30s": 30,
+            "35s": 35,
+            "40s": 40,
+            "45s": 45,
+            "50s": 50,
+            "55s": 55,
+            "1m": 60,
+            "2m": 62,
+            "3m": 63,
+            "4m": 64,
+            "5m": 65,
+            "10m": 70,
+            "15m": 75,
+            "30m": 90,
+            "45m": 105,
+            "1h": 120,
+            "2h": 122,
+            "hold": 255
+          } %}
+          {% set effects = {
+            "off": 0,
+            "solid": 1,
+            "blinkfast": 2,
+            "blink": 3,
+            "pulse": 4
+          } %}
+          {% set effects_dimmer = {
+            "off": 0,
+            "solid": 1,
+            "chase": 2,
+            "blinkfast": 3,
+            "blink": 4,
+            "pulse": 5
+          } %}
+          {% set ba = colors[color | default("red") | lower] %}
+          {% set bb = brightness | default(10) %} 
+          {% set bc = durations[duration | default("hold") | lower] %}
+          {% set bd = effects[effect | default("solid") | lower] %}
+
+          {{ ba + (bb * (2**8)) + (bc * (2**16)) + (bd * (2**24)) }}
+        {% endif %}

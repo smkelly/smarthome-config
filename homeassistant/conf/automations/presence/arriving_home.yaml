@@ -13,4 +13,5 @@ action:
     entity_id: 
       - group.family_room_lights
       - switch.family_room_tree
+      - switch.kitchen_lights
   - event: my_presence_home
