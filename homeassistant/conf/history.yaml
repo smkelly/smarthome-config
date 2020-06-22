@@ -3,4 +3,3 @@ exclude:
     - automation
     - group
     - updater
-    - weblink

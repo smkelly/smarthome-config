@@ -3,7 +3,6 @@ exclude:
     - group
     - updater
     - weather
-    - weblink
   entities:
     - sensor.dark_sky_daily_summary
     - sensor.dark_sky_hourly_summary

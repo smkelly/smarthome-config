@@ -1,5 +1,3 @@
-control: hidden
-entities:
 - input_boolean.wakeup_lights
 - input_datetime.alarm_time
 - input_boolean.sleeping

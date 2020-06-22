@@ -5,6 +5,8 @@ homeassistant:
   elevation: !secret hass_elevation
   unit_system: imperial
   time_zone: America/Chicago
+  internal_url: !secret hass_internal_url
+  external_url: !secret hass_external_url
   customize: !include conf/customized.yaml
   packages: !include_dir_named conf/packages/
   auth_providers: !include conf/auth_providers.yaml
@@ -43,7 +45,6 @@ lovelace: !include conf/lovelace.yaml
 map:
 media_player:
 mobile_app:
-netatmo: !include conf/netatmo.yaml
 notify: !include conf/notifiers.yaml
 person:
 rainmachine: !include conf/rainmachine.yaml

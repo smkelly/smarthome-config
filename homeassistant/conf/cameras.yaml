@@ -1,4 +1,3 @@
-- platform: ring
 - platform: mjpeg
   name: "Nursery Camera"
   still_image_url: !secret camera_nursery_still_image_url

@@ -1,9 +1,0 @@
-binary_sensor:
-  platform: ring
-
-ring:
-  username: !secret ring_username
-  password: !secret ring_password
-
-sensor:
-  platform: ring

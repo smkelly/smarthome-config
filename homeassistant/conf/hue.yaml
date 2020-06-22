@@ -1,5 +1,4 @@
 bridges:
   - host: !secret hue_host
-    filename: phue.conf
     allow_hue_groups: false
     allow_unreachable: true
