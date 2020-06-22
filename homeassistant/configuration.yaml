@@ -13,22 +13,17 @@ homeassistant:
 
 alarm_control_panel: !include conf/alarm_control_panel.yaml
 alexa:
-alexa_media: !include conf/alexa_media.yaml
 amcrest: !include conf/amcrest.yaml
 automation: !include_dir_list conf/automations/
 binary_sensor: !include_dir_list conf/binary_sensors/
-camera: !include conf/cameras.yaml
 cloud: !include conf/cloud.yaml
 config:
 cover: !include conf/cover.yaml
 device_tracker: !include conf/device_tracker.yaml
 discovery: !include conf/discovery.yaml
-ecobee: !include conf/ecobee.yaml
 ffmpeg:
 frontend: !include conf/frontend.yaml
 group: !include_dir_named conf/groups/
-hacs:
-  token: !secret hacs_token
 history: !include conf/history.yaml
 http: !include conf/http.yaml
 homekit: !include conf/homekit.yaml
@@ -38,7 +33,6 @@ ios:
 input_boolean: !include_dir_named conf/input_booleans/
 input_datetime: !include_dir_named conf/input_datetimes/
 intent_script: !include_dir_named conf/intent_scripts/
-light: !include_dir_list conf/lights/
 logbook: !include conf/logbook.yaml
 logger: !include conf/logger.yaml
 lovelace: !include conf/lovelace.yaml

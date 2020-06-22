@@ -1,5 +1,0 @@
-platform: group
-name: Front Door
-entities:
-  - light.front_door_1
-  - light.front_door_2

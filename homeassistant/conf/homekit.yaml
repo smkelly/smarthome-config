@@ -6,35 +6,23 @@ filter:
     - light
   include_entities:
     - binary_sensor.backyard_motion
-    - binary_sensor.family_room_occupancy
     - binary_sensor.front_door
-    - binary_sensor.guest_room_occupancy
-    - binary_sensor.home_occupancy
-    - binary_sensor.master_bedroom_occupancy
-    - binary_sensor.nursery_occupancy
-    - binary_sensor.office_occupancy
+    - binary_sensor.front_door_motion
+    - binary_sensor.nurserycam_motion_detected
+    - camera.front_door
+    - camera.nurserycam
     - climate.home
-    - group.bedroom_fan
-    - group.family_room_lights
-    - group.living_room_lamps
     - input_boolean.wakeup_lights
     - lock.front_door_deadbolt
     - person.rachel
     - person.sean
-    - scene.astros
     - sensor.backyard_floodlight_luminance
-    - sensor.dark_sky_humidity
-    - sensor.dark_sky_temperature
-    - sensor.family_room_temperature
-    - sensor.guest_room_temperature
-    - sensor.home_humidity
-    - sensor.master_bedroom_temperature
     - sensor.netatmo_kellys_weather_backyard_humidity
     - sensor.netatmo_kellys_weather_backyard_temperature
     - sensor.netatmo_kellys_weather_family_room_co2
     - sensor.netatmo_kellys_weather_family_room_humidity
-    - sensor.nursery_temperature
-    - sensor.office_temperature
+    - sensor.netatmo_kellys_weather_family_room_noise
+    - sensor.netatmo_kellys_weather_family_room_temperature
     - switch.backyard_floodlight
     - switch.dark_mode
     - switch.family_room_light_adjuster
