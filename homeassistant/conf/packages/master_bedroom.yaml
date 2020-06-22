@@ -28,14 +28,16 @@ automation:
       service: light.turn_off
       entity_id: light.master_hall
 
-  - alias: "Turn off bedroom lights for Apple TV"
+  - alias: "Turn off bedroom lights for TV (Sonos)"
     trigger:
       platform: state
-      entity_id: media_player.master_bedroom_appletv
+      entity_id: media_player.master_bedroom
       to: "playing"
     condition:
       condition: time
-      after: "21:30:00"
+      after: "21:00:00"
     action:
       - service: light.turn_off
         entity_id: group.master_bedroom
+        data:
+          transition: 30
