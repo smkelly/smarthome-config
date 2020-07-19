@@ -1,1 +1,0 @@
-third-party/homeassistant-lovelace-gen/lovelace-gen.py

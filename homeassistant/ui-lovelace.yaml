@@ -1,0 +1,11 @@
+titlm: Home
+
+button_card_templates: !include lovelace/button-card-templates.yaml
+
+views:
+  - !include lovelace/view_home.yaml
+  - !include lovelace/view_summary.yaml
+#  - !include lovelace/view_alarm.yaml
+  - !include lovelace/view_sprinklers.yaml
+  - !include lovelace/view_media.yaml
+  - !include lovelace/view_controls.yaml

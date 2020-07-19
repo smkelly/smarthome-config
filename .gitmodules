@@ -1,9 +1,6 @@
 [submodule "homeassistant/third-party/button-card"]
 	path = homeassistant/www/button-card
 	url = https://github.com/kuuji/button-card
-[submodule "homeassistant/third-party/homeassistant-lovelace-gen"]
-	path = homeassistant/third-party/homeassistant-lovelace-gen
-	url = https://github.com/thomasloven/homeassistant-lovelace-gen
 [submodule "homeassistant/www/vertical-stack-in-card"]
 	path = homeassistant/www/vertical-stack-in-card
 	url = https://github.com/custom-cards/vertical-stack-in-card
