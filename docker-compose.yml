@@ -20,29 +20,6 @@ services:
       start_period: 1m
     restart: always
 
-  influxdb:
-    container_name: influxdb
-    image: influxdb
-    volumes:
-      - /opt/smarthome/influxdb:/var/lib/influxdb
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-      - 8086:8086
-    restart: always
-
-  grafana:
-    container_name: grafana
-    image: grafana/grafana
-    user: '1000'
-    volumes:
-      - /opt/smarthome/grafana:/var/lib/grafana
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-      - 3000:3000
-    depends_on:
-      - influxdb
-    restart: always
-
   hass:
     container_name: hass
     image: homeassistant/home-assistant:0.111.4
@@ -57,17 +34,5 @@ services:
     # Needed due to HomeKit; it doesn't work from a Docker network
     network_mode: host
     depends_on:
-      - influxdb
       - postgres
 
-#  nodered:
-#    container_name: nodered
-#    image: nodered/node-red-docker:v8
-#    volumes:
-#      - /opt/smarthome/nodered:/data
-#      - /etc/localtime:/etc/localtime:ro
-#    ports:
-#      - 1880:1880
-#    restart: always
-#    depends_on:
-#      - hass
