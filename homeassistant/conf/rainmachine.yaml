@@ -1,3 +1,0 @@
-controllers:
-  - ip_address: !secret rainmachine_ip_address
-    password: !secret rainmachine_password

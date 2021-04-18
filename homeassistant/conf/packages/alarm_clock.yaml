@@ -2,27 +2,21 @@ automation:
   - alias: Cancel Wake Up
     trigger:
       - platform: state
-        entity_id: light.master_1
-        to: 'off'
-      - platform: state
-        entity_id: light.master_2
-        to: 'off'
-      - platform: state
-        entity_id: light.master_3
-        to: 'off'
-      - platform: state
-        entity_id: light.master_4
-        to: 'off'
-      - platform: state
-        entity_id: light.master_hall
+        entity_id:
+          - light.master_1
+          - light.master_2
+          - light.master_3
+          - light.master_4
         to: 'off'
     condition:
       condition: state
       entity_id: script.wakeup
       state: 'on'
     action:
-      service: script.turn_off
-      entity_id: script.wakeup
+      - service: script.turn_off
+        entity_id: script.wakeup
+      - service: switch.turn_on
+        entity_id: switch.circadian_lighting_master_bedroom_light_adjuster
 
   - alias: Wake Up Lights
     trigger:
@@ -53,7 +47,7 @@ automation:
         entity_id: input_boolean.vacation_mode
         state: 'off'
     action:
-      service_template: >
+      service: >
         {% if ((as_timestamp(now())+86400) |  timestamp_custom("%w") | int) in range(1,6) %}
           input_boolean.turn_on
         {% else %}
@@ -76,7 +70,7 @@ intent_script:
   SetAlarmTime:
     action:
       service: input_datetime.set_datetime
-      data_template:
+      data:
         entity_id: input_datetime.alarm_time
         time: "{{ time }}"
     speech:
@@ -87,16 +81,19 @@ intent_script:
 script:
   wakeup:
     alias: "Wake Up"
+    variables:
+      brightness: 255
+      kelvin: 2700
     sequence:
-      - service: switch.turn_on
-        entity_id: switch.kitchen_lights
+      - service: switch.turn_off
+        entity_id: switch.circadian_lighting_master_bedroom_light_adjuster
       - service: light.turn_on
         entity_id: light.master_1
         data:
           transition: 600
           <<: &alarm_clock_light
-            brightness: 255
-            kelvin: 2700
+            brightness: "{{ brightness }}"
+            kelvin: "{{ kelvin }}"
       - delay:
           minutes: 2
       - service: light.turn_on
@@ -129,8 +126,12 @@ script:
           minutes: 2
       - service: input_boolean.turn_off
         entity_id: input_boolean.sleeping
-      - service: light.turn_on
-        entity_id: group.family_room
-        data:
-          <<: *alarm_clock_light
-          transition: 300
+      - service: switch.turn_on
+        entity_id: switch.circadian_lighting_master_bedroom_light_adjuster
+      # - service: switch.turn_on
+      #   entity_id: switch.kitchen_lights
+      # - service: light.turn_on
+      #   entity_id: group.family_room
+      #   data:
+      #     <<: *alarm_clock_light
+      #     transition: 300

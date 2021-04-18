@@ -1,0 +1,16 @@
+automation:
+  - id: 62a10670-9f21-11eb-9cd3-7fbb1eaf6510
+    alias: "Store Room motion"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.store_room_motion_sensor_home_security_motion_detection
+        to: "off"
+        for: "00:03:00"
+      - platform: state
+        entity_id: binary_sensor.store_room_motion_sensor_home_security_motion_detection
+        to: "on"
+    variables:
+      mode: '{{ states("binary_sensor.store_room_motion_sensor_home_security_motion_detection") }}'
+    action:
+      service: "light.turn_{{mode}}"
+      entity_id: light.store_room

@@ -17,7 +17,6 @@ phue.conf
 plex.conf
 pyozw.sqlite
 tts/
-ui-lovelace.yaml
 webostv.conf
 zwcfg_*.xml
 zwscene.xml

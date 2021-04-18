@@ -1,14 +1,30 @@
-switch:
-  -  platform: flux
-     name: "Family Room Light Adjuster"
-     start_time: "06:30"
-     stop_time: "22:00"
-     disable_brightness_adjust: true
-     mode: mired
-     lights:
-       - light.family_room_1
-       - light.family_room_2
-       - light.family_room_3
-       - light.family_room_4
+adaptive_lighting:
+  name: "Family Room Light Adjuster"
+  min_color_temp: 2500
+  lights:
+    - light.family_room_1
+    - light.family_room_2
+    - light.family_room_3
+    - light.family_room_4
 
-
+automation:
+  id: aa4f346a-9f21-11eb-aac3-af83f59742a4
+  alias: 'Random Family Room color'
+  trigger:
+    platform: time_pattern
+    seconds: 0
+  condition:
+    condition: state
+    entity_id: input_boolean.rainbow_mode
+    state: 'on'
+  action:
+    service: light.turn_on
+    entity_id: group.family_room_lights
+    data:
+      effect: random
+      transition: 60
+      brightness: 255
+  
+input_boolean:
+  rainbow_mode:
+    name: Rainbow Mode

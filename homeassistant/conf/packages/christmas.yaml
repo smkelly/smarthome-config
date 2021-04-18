@@ -1,27 +1,26 @@
 automation:
-  - alias: Christmas Tree on
-    trigger:
-      platform: sun
-      event: sunset
-      offset: '-00:15:00'
-    condition:
-      condition: state
-      entity_id: switch.living_room_tree
-      state: 'off'
-    action:
-      service: homeassistant.turn_on
-      entity_id: switch.living_room_tree
-
-  - alias: Christmas Tree off
+  - id: e318196e-a06c-11eb-a618-531e7bccde0c
+    alias: Christmas Tree on
     trigger:
       platform: time
-      at: '01:00:00'
-    condition:
-      condition: state
-      entity_id: switch.living_room_tree
-      state: 'on'
+      at: '07:00:00'
     action:
-      service: homeassistant.turn_off
-      entity_id: switch.living_room_tree
+      service: homeassistant.turn_on
+      entity_id:
+        - switch.family_room_tree
+        - switch.living_room_tree
+
+  - id: ed27717a-a06c-11eb-a56b-4bc8b2b348c7
+    alias: Christmas Tree off
+    trigger:
+      platform: time
+      at: '22:00:00'
+    action:
+      - delay:
+          seconds: "{{ range(0, 3600) | random | int }}"
+      - service: homeassistant.turn_off
+        entity_id:
+          - switch.family_room_tree
+          - switch.living_room_tree
 
 

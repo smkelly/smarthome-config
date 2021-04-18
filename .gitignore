@@ -7,3 +7,8 @@ influxdb/data/
 nodered/
 secrets.yaml
 *.db
+homeassistant/custom_components/
+homeassistant/themes/
+homeassistant/www/community/
+homeassistant/harmony_*.conf
+zwavejs/

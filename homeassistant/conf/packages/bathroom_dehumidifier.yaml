@@ -5,11 +5,14 @@
 # * Turn it on at 10AM if it isn't already on.
 
 automation:
-  - alias: "Bathroom Dehumidifier: Wake up and turn on"
+  - id: b1d73f2e-a06c-11eb-8305-63c34ebd06ff
+    alias: "Bathroom Dehumidifier: Turn on"
     trigger:
-      platform: state
-      entity_id: input_boolean.sleeping
-      to: "off"
+      - platform: state
+        entity_id: input_boolean.sleeping
+        to: "off"
+      - platform: time
+        at: "08:00:00"
     condition:
       condition: state
       entity_id: switch.bathroom_dehumidifier
@@ -18,19 +21,8 @@ automation:
       service: switch.turn_on
       entity_id: switch.bathroom_dehumidifier
 
-  - alias: "Bathroom Dehumidifier: Fallback turn on"
-    trigger:
-      platform: time
-      at: "10:00:00"
-    condition:
-      condition: state
-      entity_id: switch.bathroom_dehumidifier
-      state: "off"
-    action:
-      service: switch.turn_on
-      entity_id: switch.bathroom_dehumidifier
-
-  - alias: "Bathroom Dehumidifier: Bed time and turn off"
+  - id: cac4f4cc-a06c-11eb-a01b-fbddd8111840
+    alias: "Bathroom Dehumidifier: Bed time and turn off"
     trigger:
       platform: state
       entity_id: input_boolean.sleeping

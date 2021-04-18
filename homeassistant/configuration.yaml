@@ -13,12 +13,12 @@ homeassistant:
 
 alarm_control_panel: !include conf/alarm_control_panel.yaml
 alexa:
-amcrest: !include conf/amcrest.yaml
+#amcrest: !include conf/amcrest.yaml
 automation: !include_dir_list conf/automations/
 binary_sensor: !include_dir_list conf/binary_sensors/
+circadian_lighting:
 cloud: !include conf/cloud.yaml
 config:
-cover: !include conf/cover.yaml
 device_tracker: !include conf/device_tracker.yaml
 discovery: !include conf/discovery.yaml
 ffmpeg:
@@ -28,7 +28,6 @@ history: !include conf/history.yaml
 http: !include conf/http.yaml
 homekit: !include conf/homekit.yaml
 hue: !include conf/hue.yaml
-influxdb:
 ios:
 input_boolean: !include_dir_named conf/input_booleans/
 input_datetime: !include_dir_named conf/input_datetimes/
@@ -41,7 +40,6 @@ media_player:
 mobile_app:
 notify: !include conf/notifiers.yaml
 person:
-rainmachine: !include conf/rainmachine.yaml
 recorder: !include conf/recorder.yaml
 remote: !include conf/remote.yaml
 scene: !include_dir_list conf/scenes/
@@ -52,7 +50,7 @@ sun:
 system_health:
 tts: !include conf/tts.yaml
 twilio: !include conf/twilio.yaml
-updater: !include conf/updater.yaml
+updater:
+webostv: !include conf/webostv.yaml
 zeroconf:
 zone: !include conf/zones.yaml
-zwave: !include conf/zwave.yaml

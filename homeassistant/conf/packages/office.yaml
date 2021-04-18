@@ -1,22 +1,94 @@
 automation:
-  - alias: "Office lights: Reset to normal"
-    trigger:
-      - platform: state
-        entity_id:
-          - light.office_1
-          - light.office_2
-          - light.office_3
-          - light.office_4
-        to: "on"
-    condition:
-      condition: time
-      after: "06:00:00"
-      before: "21:00:00"
-    action:
-      service: light.turn_on
-      data_template:
-        entity_id: "{{ trigger.entity_id }}"
-        kelvin: 2700
-        brightness: 255
-        transition: 0
+- id: 0204f26e-9f20-11eb-8389-17439416dac9
+  alias: "Office computer idle, lights off"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doctor_active
+      from: "on"
+      to: "off"
+      for:
+        minutes: 5
+  action:
+    service: light.turn_off
+    entity_id:
+      - light.office_1
+      - light.office_2
+      - light.office_3
+      - light.office_4
 
+- id: 24cdf2d2-9f20-11eb-b599-e35079718ea2
+  alias: "Office computer active, lights on"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doctor_active
+      from: "off"
+      to: "on"
+  action:
+    service: light.turn_on
+    entity_id:
+      - light.office_1
+      - light.office_2
+      - light.office_3
+      - light.office_4
+
+- id: 2e58976c-9f20-11eb-85be-27e7e153dccb
+  alias: "Office webcam activation change"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doctor_camera_in_use
+      to: "on"
+    - platform: state
+      entity_id: binary_sensor.doctor_camera_in_use
+      to: "off"
+      for:
+        seconds: 3
+  action:
+    - choose:
+        - conditions: "{{ trigger.to_state.state == 'on' }}"
+          sequence:
+            - service: switch.turn_off
+              entity_id: switch.adaptive_lighting_office_light_adjuster
+            - service: light.turn_on
+              entity_id:
+                - light.office_1
+                - light.office_2
+                - light.office_3
+                - light.office_4
+              data:
+                brightness: 255
+                rgb_color: [255, 255, 255]
+            - service: light.turn_on
+              entity_id: light.office_key_light
+              data:
+                brightness: 65
+                rgb_color: [255, 255, 255]
+
+            - service: script.inovelli_notify
+              data:
+                entity_id: "switch.kitchen_lights"
+                color: "red"
+        - conditions: "{{ trigger.to_state.state == 'off' }}"
+          sequence:
+            - service: light.turn_off
+              entity_id: light.office_key_light
+            - service: switch.turn_on
+              entity_id: switch.adaptive_lighting_office_light_adjuster
+            - service: script.inovelli_notify
+              data:
+                entity_id: "switch.kitchen_lights"
+                effect: "off"      
+
+group:
+  office_lights:
+    - light.office_1
+    - light.office_2
+    - light.office_3
+    - light.office_4
+
+adaptive_lighting:
+  name: "Office Light Adjuster"
+  lights:
+    - light.office_1
+    - light.office_2
+    - light.office_3
+    - light.office_4

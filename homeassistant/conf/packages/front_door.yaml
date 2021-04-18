@@ -1,5 +1,6 @@
 automation:
-  - alias: 'Dark mode: Front Door light off'
+  - id: 267061ee-a06d-11eb-9941-4fecaf9adbd9
+    alias: 'Dark mode: Front Door light off'
     trigger:
       platform: state
       entity_id: input_boolean.dark_mode
@@ -10,14 +11,15 @@ automation:
           - light.front_door_1
           - light.front_door_2
 
-  - alias: 'Dark mode: Front Door light on'
+  - id: 316af672-a06d-11eb-b4d0-5f9ca836271c
+    alias: 'Dark mode: Front Door light on'
     trigger:
       platform: state
       entity_id: input_boolean.dark_mode
       to: "on"
     action:
       service: scene.turn_on
-      data_template:
+      data:
         entity_id: >
           {% macro easter(year) %}
             {% set a = year % 19 %}

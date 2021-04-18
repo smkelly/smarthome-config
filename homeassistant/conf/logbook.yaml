@@ -3,8 +3,5 @@ exclude:
     - group
     - updater
     - weather
-  entities:
-    - sensor.dark_sky_daily_summary
-    - sensor.dark_sky_hourly_summary
-    - sensor.dark_sky_minutely_summary
-    - sensor.dark_sky_summary
+  entity_globs:
+    - sensor.dark_sky_*

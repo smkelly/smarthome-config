@@ -1,0 +1,23 @@
+title: Summary
+path: summary
+cards:
+  - type: entities
+    title: Summary
+    show_header_toggle: false
+    entities:
+      - type: section
+        label: Lights
+      - entity: group.family_room_lights
+        name: Family Room
+      - entity: group.bedroom_fan
+        name: Master Bedroom
+      - entity: group.office_lights
+        name: Office
+      - entity: group.living_room_lights
+        name: Living Room
+      - entity: light.nursery_light
+        name: Nursery
+      - type: section
+        label: Entrances
+      - lock.front_door_deadbolt
+      - cover.garage_door

@@ -1,17 +1,37 @@
+christmas-tree:
+  name: "Tree"
+  icon: mdi:pine-tree
+  state:
+    - value: "on"
+      color: green
+    
 room_toggle:
-  color_type: card
   state:
     - value: "on"
       icon: mdi:toggle-switch
-      color: rgb(0, 100, 0)
     - value: "off"
       icon: mdi:toggle-switch-off
-      #color: rgb(0, 0, 0)
+    - value: "closed"
+      icon: mdi:garage
+    - value: "open"
+      icon: mdi:garage-open
+    - value: "locked"
+      icon: mdi:lock
+    - value: "unlocked"
+      icon: mdi:lock-open-variant
   styles:
     grid:
       - grid-template-areas: '"n i"'
       - grid-template-columns: 2fr 1fr 
       - grid-template-rows: 1fr
+    icon:
+      - color: >
+          [[[
+            if (entity.state == "on")
+              return "green";
+            else
+              return "black";
+          ]]]
     name:
       - font-size: 32px
       - font-weight: bold
@@ -34,10 +54,6 @@ occupancy:
     - value: "home"
       color: rgb(0, 100, 0)
       icon: mdi:account
-    - value: "on"
-      color: rgb(0, 100, 0)
-      icon: mdi:account
-
     - value: "on"
       color: rgb(0, 100, 0)
       icon: mdi:account
@@ -84,7 +100,8 @@ door:
 
 lock:
   show_last_changed: true
-  confirmation: "Are you sure you want to toggle the lock?"
+  confirmation:
+    text: "Are you sure you want to toggle the lock?"
   styles:
     label:
       - font-size: 10px
@@ -103,7 +120,8 @@ lock:
 
 garage:
   show_last_changed: true
-  confirmation: "Are you sure you want to toggle the garage door?"
+  confirmation:
+    text: "Are you sure you want to toggle the garage door?"
   styles:
     label:
       - font-size: 10px

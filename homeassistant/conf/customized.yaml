@@ -9,7 +9,7 @@ binary_sensor.front_door:
   friendly_name: Front Door
 
 ### Bar Lights
-light.bar_lights_level:
+light.bar_lights:
   friendly_name: Bar Lights
 
 ### Scentsy

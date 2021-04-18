@@ -20,19 +20,32 @@ services:
       start_period: 1m
     restart: always
 
+  zwavejs2mqtt:
+    container_name: zwavejs2mqtt
+    image: zwavejs/zwavejs2mqtt:3.4.0
+    tty: true
+    stop_signal: SIGINT
+    restart: always
+    volumes:
+      - /opt/smarthome/zwavejs:/usr/src/app/store
+    devices:
+      - /dev/serial/by-id/usb-0658_0200-if00
+    ports:
+      - 3000:3000 # websocket API
+      - 8091:8091 # web interface
+
   hass:
     container_name: hass
-    image: homeassistant/home-assistant:0.111.4
+    image: homeassistant/home-assistant:2021.4.4
     volumes:
       - /opt/smarthome/homeassistant/:/config
       - /etc/localtime:/etc/localtime:ro
       - ${SSL_PATH}/:/etc/ssl/private:ro
       - /etc/ssl/certs:/etc/ssl/certs:ro
-    devices:
-      - /dev/serial/by-id/usb-0658_0200-if00:/dev/serial/by-id/usb-0658_0200-if00
     restart: always
     # Needed due to HomeKit; it doesn't work from a Docker network
     network_mode: host
     depends_on:
       - postgres
+      - zwavejs2mqtt
 

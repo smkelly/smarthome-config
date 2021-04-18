@@ -1,0 +1,20 @@
+automation:
+  - id: 0d9a565e-9f21-11eb-affc-cb76e1a0be36
+    alias: "Turn off kitchen and dining room when bedroom lights turn off"
+    trigger:
+      platform: state
+      entity_id: group.master_bedroom
+      to: "off"
+    condition:
+      - condition: state
+        entity_id: input_boolean.sleeping
+        state: "on"
+      - condition: state
+        entity_id: switch.kitchen_lights
+        state: "on"
+    action:
+      service: switch.turn_off
+      entity_id:
+        - switch.kitchen_lights
+        - switch.dining_room_light
+

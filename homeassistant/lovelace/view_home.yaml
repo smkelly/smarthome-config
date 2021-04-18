@@ -2,226 +2,134 @@ title: Home
 path: home
 icon: mdi:home
 cards:
-  - type: "custom:vertical-stack-in-card"
-    title: "Family Room"
-    cards:
-    - type: horizontal-stack
-      cards:
-        - type: "custom:button-card"
-          entity: group.family_room_lights
-          name: Fan
-        - type: "custom:button-card"
-          entity: switch.family_room_light_adjuster
-          name: Adjuster
-        - type: "custom:button-card"
-          entity: sensor.family_room_temperature
-          template: room_temp
-    - type: horizontal-stack
-      cards:
-        - type: "custom:button-card"
-          entity: binary_sensor.family_room_occupancy
-          template: occupancy
-        - type: "custom:button-card"
-          entity: remote.family_room
-          name: Remote
-        - type: "custom:button-card"
-          entity: switch.scentsy_switch
-          name: Scentsy
+  - type: entities
+    title: Family Room
+    entities:
+      - entity: group.family_room_lights
+        name: Fan Lights
+      - entity: switch.adaptive_lighting_family_room_light_adjuster
+        name: Adjuster
+      - entity: remote.family_room
+        name: Remote
+      - entity: sensor.netatmo_kellys_weather_family_room_temperature
+        name: Temperature
+        type: custom:multiple-entity-row
+        entities:
+          - entity: sensor.netatmo_kellys_weather_family_room_min_temp
+            name: low
+          - entity: sensor.netatmo_kellys_weather_family_room_max_temp
+            name: high
+      - entity: sensor.netatmo_kellys_weather_family_room_humidity
+        name: Humidity
+      - entity: sensor.netatmo_kellys_weather_family_room_pressure
+        name: Air Pressure
+      - entity: sensor.netatmo_kellys_weather_family_room_noise
+        name: Noise
+      - entity: sensor.netatmo_kellys_weather_family_room_co2
+        name: CO2
 
-  - type: "custom:vertical-stack-in-card"
+  - type: entities
+    title: Kitchen
+    entities:
+      - entity: switch.kitchen_lights
+        icon: mdi:lightbulb-multiple
+
+  - type: entities
     title: Foyer
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: lock.front_door_deadbolt
-            name: Deadbolt
-            template: lock
-          - type: "custom:button-card"
-            entity: binary_sensor.front_door
-            template: door
-          - type: "custom:button-card"
-            entity: light.front_door_1
-            name: 1
-            template: light
-          - type: "custom:button-card"
-            entity: light.front_door_2
-            name: 2
-            template: light
-      - type: picture-entity
-        title: Doorbell Video
-        entity: camera.front_door
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            entity: binary_sensor.ring_front_door_motion
-            icon: mdi:motion-sensor
-            show_name: false
-            show_last_changed: true
-          - type: custom:button-card
-            entity: binary_sensor.ring_front_door_ding
-            icon: mdi:bell-ring
-            show_name: false
-            show_last_changed: true
+    entities:
+      - entity: lock.front_door_deadbolt
+        name: Deadbolt
+        secondary_info: last-changed
+      - entity: light.front_door_1
+        name: "1"
+      - entity: light.front_door_2
+        name: "2"
 
-  - type: custom:vertical-stack-in-card
+  - type: entities
     title: Master Bedroom
-    cards:
-      - type: picture-entity
-        entity: group.bedroom_fan
-        show_info: false
-        state_image:
-          'on': !file /local/master_bedroom_on.png
-          'off': !file /local/master_bedroom_off.png
-        tap_action:
-          action: toggle
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: sensor.master_bedroom_temperature
-            template: room_temp
-          - type: "custom:button-card"
-            entity: light.master_hall
-            name: Hall
-            template: light
-          - type: "custom:button-card"
-            entity: binary_sensor.master_bedroom_occupancy
-            template: occupancy
+    entities:
+      - entity: group.bedroom_fan
+        name: Fan
+      - entity: light.master_hall
+        name: Hall
+      - entity: switch.circadian_lighting_master_bedroom_light_adjuster
+        name: Light Adjuster
+      - entity: switch.bathroom_dehumidifier
+        name: Dehumidifier
+        icon: mdi:water-percent
 
-  - type: custom:vertical-stack-in-card
+  - type: entities
     title: Living Room
-    cards:
-    - type: picture-entity
-      entity: light.bar_lights_level
-      state_image:
-        'on': !file /local/bar_lights_on.png
-        'off': !file /local/bar_lights_off.png
-      tap_action:
-        action: toggle
-    - type: picture-entity
-      name: Lamps
-      entity: group.living_room_lamps
-      state_image:
-        'on': !file /local/living_room_lamps_on.png
-        'off': !file /local/living_room_lamps_off.png
-      tap_action:
-        action: toggle
-    - type: horizontal-stack
-      cards:
-        - type: custom:button-card
-          entity: sensor.living_room_temperature
-          template: room_temp
-        - type: custom:button-card
-          entity: binary_sensor.living_room_occupancy
-          template: occupancy
+    entities:
+      - entity: light.bar_lights
+        name: Bar Lights
+      - entity: group.living_room_lamps
+        name: Lamp
+        icon: mdi:floor-lamp
+      # - entity: switch.living_room_tree
+      #   name: Tree
+      #   icon: mdi:pine-tree
 
-  - type: "custom:vertical-stack-in-card"
-    title: Hall
+  - type: vertical-stack
+    title: Hallway
     cards:
       - type: thermostat
         entity: climate.home
         name: Thermostat
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: sensor.home_temperature
-            template: room_temp
-          - type: "custom:button-card"
-            entity: sensor.home_humidity
-            icon: mdi:water
-            show_name: false
-            show_state: true
-          - type: "custom:button-card"
-            entity: binary_sensor.home_occupancy
-            template: occupancy
 
-  - type: "custom:vertical-stack-in-card"
+  - type: entities
     title: Office
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: light.office_1
-            name: 1
-            template: light
-          - type: "custom:button-card"
-            entity: light.office_2
-            name: 2
-            template: light
-          - type: "custom:button-card"
-            entity: light.office_3
-            name: 3
-            template: light
-          - type: "custom:button-card"
-            entity: light.office_4
-            name: 4
-            template: light
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: sensor.office_temperature
-            template: room_temp
-          - type: "custom:button-card"
-            entity: binary_sensor.office_occupancy
-            template: occupancy
-          - type: "custom:button-card"
-            entity: vacuum.roomba
-            name: Roomba
-          - type: "custom:button-card"
-            card_type: blank-card
+    entities:
+      - entity: light.office_1
+        name: "1"
+      - entity: light.office_2
+        name: "2"
+      - entity: light.office_3
+        name: "3"
+      - entity: light.office_4
+        name: "4"
+      - entity: light.office_key_light
+        name: "Key Light"
+      - entity: switch.adaptive_lighting_office_light_adjuster
+        name: Light Adjuster
+      - entity: binary_sensor.doctor_camera_in_use
+        name: iMac Camera
+      - entity: binary_sensor.doctor_microphone_in_use
+        name: iMac Microphone
 
+  # - type: vertical-stack
+  #   title: Nursery
+  #   cards:
+  #     - type: entity
+  #       entity: light.nursery_light
 
-  - type: "custom:vertical-stack-in-card"
-    title: Guest Room
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: sensor.guest_room_temperature
-            template: room_temp
-          - type: "custom:button-card"
-            entity: binary_sensor.guest_room_occupancy
-            template: occupancy
-
-  - type: custom:vertical-stack-in-card
-    title: Nursery
-    cards:
-      - type: picture-entity
-        entity: camera.nurserycam
-        show_name: false
-        show_state: false
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: sensor.nursery_temperature
-            template: room_temp
-          - type: "custom:button-card"
-            entity: binary_sensor.nursery_occupancy
-            template: occupancy
-          - type: "custom:button-card"
-            entity: light.nursery_light
-            template: light
-  - type: custom:vertical-stack-in-card
+  - type: entities
     title: Garage
-    cards:
-      - type: "custom:button-card"
-        entity: cover.garage_door
-        template: garage
-  - type: custom:vertical-stack-in-card
+    entities:
+      - entity: cover.garage_door
+        secondary_info: last-changed
+  
+  - type: entities
+    title: Store Room
+    entities:
+      - entity: light.store_room
+      - entity: binary_sensor.store_room_motion_sensor_home_security_motion_detection
+        secondary_info: last-changed
+
+  - type: vertical-stack
     title: Backyard
     cards:
-      - type: "custom:button-card"
-        entity: switch.backyard_floodlight
-        template: light
-        name: Floodlight
-        icon: mdi:spotlight-beam
-      - type: "custom:button-card"
-        entity: binary_sensor.backyard_motion
-        name: Motion
-        icon: mdi:motion-sensor
-        show_last_changed: true
+      - type: horizontal-stack
+        cards:
+        - type: "custom:button-card"
+          entity: sensor.netatmo_kellys_weather_family_room_backyard_temperature
+          template: temp
+        - type: "custom:button-card"
+          entity: sensor.netatmo_kellys_weather_family_room_backyard_humidity
+          show_name: false
+          show_state: true
       - type: gauge
-        entity: sensor.backyard_floodlight_luminance
+        entity: sensor.backyard_floodlight_illuminance
         name: Luminance
         unit: lux
         min: 0
@@ -230,3 +138,14 @@ cards:
           green: 250
           yellow: 100
           red: 0
+      - type: entities
+        footer:
+          type: graph
+          entity: sensor.netatmo_kellys_weather_family_room_backyard_temperature
+        entities:
+        - entity: switch.backyard_floodlight
+          name: Floodlight
+          icon: mdi:spotlight-beam
+        - entity: binary_sensor.backyard_motion
+          name: Motion
+          icon: mdi:motion-sensor

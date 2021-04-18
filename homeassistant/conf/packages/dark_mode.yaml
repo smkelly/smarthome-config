@@ -4,12 +4,9 @@ automation:
       - platform: sun
         event: sunset
       - platform: numeric_state
-        entity_id: sensor.backyard_floodlight_luminance
+        entity_id: sensor.backyard_floodlight_illuminance
         below: 100
     condition:
-      condition: and
-      conditions:
-        # dark_mode is off AND (Sun is set OR (cloudy AND likely to rain))
         - condition: state
           entity_id: input_boolean.dark_mode
           state: "off"
@@ -18,7 +15,7 @@ automation:
           - condition: sun
             after: sunset
           - condition: numeric_state
-            entity_id: sensor.backyard_floodlight_luminance
+            entity_id: sensor.backyard_floodlight_illuminance
             below: 100
     action:
       - service: input_boolean.turn_on
@@ -29,7 +26,7 @@ automation:
       - platform: sun
         event: sunrise
       - platform: numeric_state
-        entity_id: sensor.backyard_floodlight_luminance
+        entity_id: sensor.backyard_floodlight_illuminance
         above: 100
     condition:
       - condition: state
@@ -40,7 +37,7 @@ automation:
       - condition: sun
         before: sunset
       - condition: numeric_state
-        entity_id: sensor.backyard_floodlight_luminance
+        entity_id: sensor.backyard_floodlight_illuminance
         above: 100
     action:
       - service: input_boolean.turn_off

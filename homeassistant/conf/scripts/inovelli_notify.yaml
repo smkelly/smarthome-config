@@ -1,14 +1,12 @@
 # Inspired by https://brianhanifin.com/posts/inovelli-dimmer-status-led-home-assistant/
 alias: "Inovelli Notify"
 sequence:
-  - service: zwave.set_config_parameter
+  - service: zwave_js.bulk_set_partial_config_parameters
     data_template:
-      node_id: "{{ state_attr(entity_id, 'node_id') }}"
-      parameter: >
-        {{ "8" if "LZW30-SN" in state_attr(entity_id, "product_name") else "16" }}
-      size: 4
+      entity_id: "{{ entity_id }}"
+      parameter: 8
       value: >
-        {% if effect|lower == "off" %}
+        {% if effect|default|lower == "off" %}
           0
         {% else %}
           {% set colors = {

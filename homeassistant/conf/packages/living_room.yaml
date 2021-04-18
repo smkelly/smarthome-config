@@ -1,35 +1,38 @@
 automation:
-  - alias: "Living Room lights: Dark Mode (off)"
+  - id: 57161ea6-a06d-11eb-bd3a-434557611c89
+    alias: "Living Room lights: Dark Mode (off)"
     trigger:
       platform: state
       entity_id: input_boolean.dark_mode
       to: "off"
     condition:
       condition: state
-      entity_id: light.bar_lights_level
+      entity_id: light.bar_lights
       state: 'on'
     action:
-      - service: light.turn_off
-        entity_id: light.bar_lights_level
-      - service: switch.turn_off
-        entity_id: group.living_room_lamps
+      - service: homeassistant.turn_off
+        entity_id:
+          - light.bar_lights
+          - group.living_room_lamps
 
-  - alias: "Living Room lights: Dark Mode (on)"
+  - id: 6c31daa0-a06d-11eb-a710-bb78a9a2218b
+    alias: "Living Room lights: Dark Mode (on)"
     trigger:
       platform: state
       entity_id: input_boolean.dark_mode
       to: "on"
     condition:
       condition: state
-      entity_id: light.bar_lights_level
+      entity_id: light.bar_lights
       state: 'off'
     action:
-      - service: light.turn_on
-        entity_id: light.bar_lights_level
-      - service: switch.turn_on
-        entity_id: group.living_room_lamps
+      - service: homeassistant.turn_on
+        entity_id:
+          - light.bar_lights
+          - group.living_room_lamps
 
-  - alias: "Living Room lamps off timer"
+  - id: 77c529a8-a06d-11eb-98c8-eb34e95827b7
+    alias: "Living Room lamps off timer"
     trigger:
       platform: time
       at: "23:00:00"

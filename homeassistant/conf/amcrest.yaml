@@ -3,7 +3,8 @@
   password: !secret amcrest_nurserycam_password
   name: "NurseryCam"
   stream_source: rtsp
-  ffmpeg_arguments: "-acodec copy -vcodec copy"
+  resolution: high
+  #ffmpeg_arguments: "-acodec copy -vcodec copy"
   binary_sensors:
     - motion_detected
     - online

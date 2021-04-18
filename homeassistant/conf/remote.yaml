@@ -1,4 +1,4 @@
-- platform: harmony
-  name: Family Room
-  host: !secret remote_harmony_host
-  activity: "Watch TV"
+# - platform: harmony
+#   name: Family Room
+#   host: !secret remote_harmony_host
+#   activity: "Watch TV"

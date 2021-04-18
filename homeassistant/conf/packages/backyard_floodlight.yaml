@@ -8,7 +8,3 @@ binary_sensor:
         friendly_name: "Backyard Motion"
         device_class: motion
         value_template: "{{ states('sensor.backyard_floodlight_burglar')|int == 8 }}"
-homeassistant:
-  customize:
-    sensor.backyard_floodlight_luminance:
-      device_class: illuminance
