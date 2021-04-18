@@ -13,7 +13,6 @@ homeassistant:
 
 alarm_control_panel: !include conf/alarm_control_panel.yaml
 alexa:
-#amcrest: !include conf/amcrest.yaml
 automation: !include_dir_list conf/automations/
 binary_sensor: !include_dir_list conf/binary_sensors/
 circadian_lighting:
@@ -51,6 +50,5 @@ system_health:
 tts: !include conf/tts.yaml
 twilio: !include conf/twilio.yaml
 updater:
-webostv: !include conf/webostv.yaml
 zeroconf:
 zone: !include conf/zones.yaml
