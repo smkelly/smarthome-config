@@ -1,5 +1,6 @@
 automation:
-  - alias: Trash Day Reminder
+  - id: 7f7dfc4e-a0a7-11eb-bd3f-2742a472f21f
+    alias: Trash Day Reminder
     trigger:
       platform: time
       at: '19:30:00'
@@ -16,7 +17,8 @@ automation:
       data:
         message: "Reminder: Tomorrow is trash day."
 
-  - alias: Recycle Day Reminder
+  - id: 882f2728-a0a7-11eb-bf73-af497201a3d9
+    alias: Recycle Day Reminder
     trigger:
       platform: time
       at: '19:30:00'

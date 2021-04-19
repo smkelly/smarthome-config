@@ -1,3 +1,4 @@
+id: 9fb565ec-a0a7-11eb-b393-a30087cd7157
 alias: Login Failure
 trigger:
   platform: template

@@ -1,3 +1,4 @@
+id: 1dfd388a-a0a8-11eb-893b-2b680b5f5444
 alias: Vacation Mode On
 trigger:
   platform: state

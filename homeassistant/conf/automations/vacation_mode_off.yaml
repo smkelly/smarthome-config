@@ -1,3 +1,4 @@
+id: 165890c0-a0a8-11eb-b574-63f3dbf35a84
 alias: Vacation Mode Off
 trigger:
   platform: state

@@ -1,5 +1,6 @@
 automation:
-  - alias: "Notify on nursery light on"
+  - id: 5d3772b4-a0a7-11eb-8aae-87fda5ce3925
+    alias: "Notify on nursery light on"
     trigger:
       platform: state
       entity_id: light.nursery_light
@@ -10,7 +11,8 @@ automation:
         entity_id: "zwave.kitchen_lights"
         color: "red"
   
-  - alias: "Notify on nursery light off"
+  - id: 66693692-a0a7-11eb-b971-0f1ba8a6349b
+    alias: "Notify on nursery light off"
     trigger:
       platform: state
       entity_id: light.nursery_light

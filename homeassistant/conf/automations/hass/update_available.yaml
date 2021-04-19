@@ -1,3 +1,4 @@
+id: b9925664-a0a7-11eb-aea4-5f7992db09d1
 alias: 'Update Available Notification'
 trigger:
   platform: state

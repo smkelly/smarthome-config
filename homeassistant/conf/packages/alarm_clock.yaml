@@ -1,5 +1,6 @@
 automation:
-  - alias: Cancel Wake Up
+  - id: cb6fe244-a0a6-11eb-9123-9753fb1eb488
+    alias: Cancel Wake Up
     trigger:
       - platform: state
         entity_id:
@@ -18,7 +19,8 @@ automation:
       - service: switch.turn_on
         entity_id: switch.circadian_lighting_master_bedroom_light_adjuster
 
-  - alias: Wake Up Lights
+  - id: d8d919b4-a0a6-11eb-8a33-0f071476d38c
+    alias: Wake Up Lights
     trigger:
       platform: time_pattern
       seconds: 0
@@ -38,7 +40,8 @@ automation:
       service: script.turn_on
       entity_id: script.wakeup
 
-  - alias: Setup Wakeup switch for tomorrow
+  - id: e4ed7a4c-a0a6-11eb-a981-97d92297d048
+    alias: Setup Wakeup switch for tomorrow
     trigger:
       platform: time
       at: '20:00:00'

@@ -1,3 +1,4 @@
+id: acb296fc-a0a7-11eb-87c0-ef5bcf92a8d4
 alias: HASS starting up
 trigger:
   platform: homeassistant

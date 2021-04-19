@@ -1,5 +1,6 @@
 automation:
-  - alias: "Dark Mode: On"
+  - id: 181aee54-a0a7-11eb-a126-d36130d6693d
+    alias: "Dark Mode: On"
     trigger:
       - platform: sun
         event: sunset
@@ -21,7 +22,8 @@ automation:
       - service: input_boolean.turn_on
         entity_id: input_boolean.dark_mode
 
-  - alias: "Dark Mode:: Off"
+  - id: 21cd43f2-a0a7-11eb-9586-ef4748dec016
+    alias: "Dark Mode:: Off"
     trigger:
       - platform: sun
         event: sunrise
