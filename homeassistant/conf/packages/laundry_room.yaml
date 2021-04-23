@@ -1,0 +1,24 @@
+automation:
+  - id: d67ef914-a3d4-11eb-a41f-53e122ca4dd4
+    alias: "Laundry Room motion"
+    mode: restart
+    max_exceeded: silent
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.laundry_room_motion_home_security_motion_detection
+        from: "off"
+        to: "on"
+    action:
+      - service: switch.turn_on
+        entity_id: switch.laundry_room_light
+      - wait_for_trigger:
+          platform: state
+          entity_id: binary_sensor.laundry_room_motion_home_security_motion_detection
+          from: "on"
+          to: "off"
+          for: "0:02:00"
+      - service: switch.turn_off
+        entity_id: switch.laundry_room_light
+        
+
+
