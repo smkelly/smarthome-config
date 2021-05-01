@@ -1,4 +1,30 @@
 automation:
+  - id: a88d986e-aa21-11eb-98e7-378228718138
+    alias: "Front Door motion"
+    mode: restart
+    max_exceeded: silent
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.front_door_motion
+        from: "off"
+        to: "on"
+    condition:
+      condition: state
+      entity_id: input_boolean.dark_mode
+      state: "on"
+
+    action:
+      - service: switch.turn_on
+        entity_id: switch.entryway_light
+      - wait_for_trigger:
+          platform: state
+          entity_id: binary_sensor.front_door_motion
+          from: "on"
+          to: "off"
+          for: "0:02:00"
+      - service: switch.turn_off
+        entity_id: switch.entryway_light
+
   - id: 267061ee-a06d-11eb-9941-4fecaf9adbd9
     alias: 'Dark mode: Front Door light off'
     trigger:
