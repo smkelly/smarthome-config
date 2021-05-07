@@ -15,7 +15,6 @@ alarm_control_panel: !include conf/alarm_control_panel.yaml
 alexa:
 automation: !include_dir_list conf/automations/
 binary_sensor: !include_dir_list conf/binary_sensors/
-circadian_lighting:
 cloud: !include conf/cloud.yaml
 config:
 device_tracker: !include conf/device_tracker.yaml

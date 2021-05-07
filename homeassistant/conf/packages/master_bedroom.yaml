@@ -40,26 +40,18 @@ automation:
       condition: time
       after: "21:00:00"
     action:
-      - service: switch.turn_off
-        entity_id: switch.circadian_lighting_master_bedroom_light_adjuster
       - service: light.turn_off
         entity_id: group.master_bedroom
         data:
           transition: 15
       - service: switch.turn_off
         entity_id: switch.master_closet_light
-      - delay: "0:01:00"
-      - service: switch.turn_on
-        entity_id: switch.circadian_lighting_master_bedroom_light_adjuster
 
-switch:
-  - platform: circadian_lighting
-    name: "Master Bedroom Light Adjuster"
-    disable_entity: script.wakeup
-    disable_state: "on"
-    lights_ct:
-      - light.master_1
-      - light.master_2
-      - light.master_3
-      - light.master_4
-      - light.master_hall
+adaptive_lighting:
+  name: "Master Bedroom Light Adjuster"
+  lights:
+    - light.master_1
+    - light.master_2
+    - light.master_3
+    - light.master_4
+    - light.master_hall

@@ -52,7 +52,7 @@ cards:
         name: Fan
       - entity: light.master_hall
         name: Hall
-      - entity: switch.circadian_lighting_master_bedroom_light_adjuster
+      - entity: switch.adaptive_lighting_master_bedroom_light_adjuster
         name: Light Adjuster
       - entity: switch.bathroom_dehumidifier
         name: Dehumidifier

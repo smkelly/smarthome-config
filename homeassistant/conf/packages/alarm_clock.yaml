@@ -17,7 +17,7 @@ automation:
       - service: script.turn_off
         entity_id: script.wakeup
       - service: switch.turn_on
-        entity_id: switch.circadian_lighting_master_bedroom_light_adjuster
+        entity_id: switch.adaptive_lighting_master_bedroom_light_adjuster
 
   - id: d8d919b4-a0a6-11eb-8a33-0f071476d38c
     alias: Wake Up Lights
@@ -89,7 +89,7 @@ script:
       kelvin: 2700
     sequence:
       - service: switch.turn_off
-        entity_id: switch.circadian_lighting_master_bedroom_light_adjuster
+        entity_id: switch.adaptive_lighting_master_bedroom_light_adjuster
       - service: light.turn_on
         entity_id: light.master_1
         data:
@@ -130,7 +130,7 @@ script:
       - service: input_boolean.turn_off
         entity_id: input_boolean.sleeping
       - service: switch.turn_on
-        entity_id: switch.circadian_lighting_master_bedroom_light_adjuster
+        entity_id: switch.adaptive_lighting_master_bedroom_light_adjuster
       # - service: switch.turn_on
       #   entity_id: switch.kitchen_lights
       # - service: light.turn_on
