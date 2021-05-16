@@ -22,8 +22,11 @@ automation:
   - id: d8d919b4-a0a6-11eb-8a33-0f071476d38c
     alias: Wake Up Lights
     trigger:
-      platform: time_pattern
-      seconds: 0
+      platform: template
+      value_template: >
+        {% set ts = states.input_datetime.alarm_time.attributes.timestamp - 600 %}
+        {% set midnight = as_timestamp("%d-%d-%d 00:00:00" | format(now().year, now().month, now().day)) %}
+        {{ now().strftime("%H:%M") == (midnight + ts) | timestamp_custom("%02H:%02M", 1) }}
     condition:
       - condition: state
         entity_id: input_boolean.wakeup_lights
@@ -31,11 +34,6 @@ automation:
       - condition: state
         entity_id: input_boolean.vacation_mode
         state: 'off'
-      - condition: template
-        value_template: >
-          {% set ts = states.input_datetime.alarm_time.attributes.timestamp - 600 %}
-          {% set midnight = as_timestamp("%d-%d-%d 00:00:00" | format(now().year, now().month, now().day)) %}
-          {{ now().strftime("%H:%M") == (midnight + ts) | timestamp_custom("%02H:%02M", 1) }}
     action:
       service: script.turn_on
       entity_id: script.wakeup
@@ -131,10 +129,3 @@ script:
         entity_id: input_boolean.sleeping
       - service: switch.turn_on
         entity_id: switch.adaptive_lighting_master_bedroom_light_adjuster
-      # - service: switch.turn_on
-      #   entity_id: switch.kitchen_lights
-      # - service: light.turn_on
-      #   entity_id: group.family_room
-      #   data:
-      #     <<: *alarm_clock_light
-      #     transition: 300
