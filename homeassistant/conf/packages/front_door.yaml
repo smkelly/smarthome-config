@@ -1,4 +1,26 @@
 automation:
+  - id: 8d13ae14-b51d-11eb-801d-837c3ae3741a
+    alias: "Front door deadbolt indicator change"
+    trigger:
+      platform: state
+      entity_id: lock.front_door_deadbolt
+    action:
+      - choose:
+          - alias: "Deadbolt locked: clear red light"
+            conditions: "{{ trigger.to_state.state == 'locked' }}"
+            sequence:
+              - service: script.inovelli_notify
+                data:
+                  entity_id: switch.entryway_light
+                  effect: "off"
+          - alias: "Deadbolt unlocked: set red light"
+            conditions: "{{ trigger.to_state.state == 'unlocked' }}"
+            sequence:
+              - service: script.inovelli_notify
+                data:
+                  entity_id: switch.entryway_light
+                  color: 'red'
+
   - id: a88d986e-aa21-11eb-98e7-378228718138
     alias: "Front Door motion"
     mode: restart
