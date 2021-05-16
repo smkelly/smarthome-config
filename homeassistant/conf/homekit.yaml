@@ -12,6 +12,7 @@ filter:
     - camera.front_door
     - climate.home
     - input_boolean.rainbow_mode
+    - input_boolean.sleeping
     - input_boolean.wakeup_lights
     - lock.front_door_deadbolt
     - person.rachel

@@ -1,0 +1,67 @@
+automation:
+  - alias: "Sleeping mode activated"
+    id: 9f0064a2-b1a6-11eb-935a-2ffb038c36e9
+    trigger:
+      - platform: state
+        entity_id: input_boolean.sleeping
+        from: 'off'
+        to: 'on'
+    action:
+      - choose:
+          - alias: "Probably going to bed but not yet sleep"
+            conditions:
+              - condition: time
+                before: "04:00:00"
+                after: "16:00:00"
+            sequence:
+              - service: scene.turn_on
+                entity_id: scene.bed_time
+              - delay:
+                  minutes: 15
+              - service: scene.turn_on
+                entity_id: scene.sleep_time
+                data:
+                  transition: 3
+        default:
+          - service: scene.turn_on
+            entity_id: scene.sleep_time
+
+
+input_boolean:
+  sleeping:
+    name: 'Sleeping Mode'
+    icon: mdi:sleep
+
+scene:
+  - name: 'Bed Time'
+    id: db34aa22-b413-11eb-8364-87ab7aacffaa
+    entities:
+      cover.garage_door: 'closed'
+      group.bedroom_fan: 'on'
+      group.family_room_lights: 'off'
+      group.living_room_lamps: 'off'
+      light.bar_lights: 'on'
+      lock.front_door_deadbolt: 'locked'
+      remote.family_room: 'off'
+      switch.dining_room_light: 'on'
+      switch.entryway_light: 'off'
+      switch.kitchen_lights: 'on'
+      switch.master_closet_light: 'on'
+      switch.laundry_room_light: 'off'
+
+  - name: 'Sleep Time'
+    id: db34a414-b413-11eb-8363-1728737d3fa0
+    entities:
+      cover.garage_door: 'closed'
+      group.bedroom_fan: 'off'
+      group.family_room_lights: 'off'
+      group.living_room_lamps: 'off'
+      light.bar_lights: 'on'
+      lock.front_door_deadbolt: 'locked'
+      light.master_hall: 'off'
+      remote.family_room: 'off'
+      switch.dining_room_light: 'off'
+      switch.entryway_light: 'off'
+      switch.kitchen_lights: 'off'
+      switch.laundry_room_light: 'off'
+      switch.master_closet_light: 'off'
