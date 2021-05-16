@@ -2,23 +2,21 @@
 
 This repository contains the configurations that power my smart home.
 
-My smart home is primarilhy powered by [Home Assistant] running on an [Intel NUC] 7 Mini-PC. Home Assistant interfaces
-with all of my smart devices and provides a central software-based "hub" to integrate and automate all of them. By having
+My smart home is primarily powered by [Home Assistant] running on an [Intel NUC] 7 Mini-PC. Home Assistant interfaces
+with all of my devices and provides a central software-based "hub" to integrate and automate them. By having
 all of my devices integrated there, I can perform automations that are otherwise not supported on the devices' native
 platforms.
 
-I update my configurations quite often. I'm either adding new devices, creating new automations, or refining the ones that
+I update my configurations fairly regularly. I'm either adding new devices, creating new automations, or refining the ones that
 already exist. You can see my current Home Assistant version [here](homeassistant/.HA_VERSION).
 
 ## Software
 
-While [Home Assistant] is the primary component of my smart home, there are other pieces of software that help
+While [Home Assistant] is the primary component of my smart home, there are other pieces of software that help:
 
 * [Home Assistant]: As covered, this is the software-based smart home hub.
 * [PostgreSQL]: HA defaults to a SQLite-based database backend, but I found this to be more performant. Plus, I'm already
   quite familiar with it from my job.
-* [Grafana]: I'm not doing much with this, but it sits on top of InfluxDB to allow me to make pretty graphs.
-* [InfluxDB]: A time series database I'm feeding HA state changes into for use with Grafana.
 * [Docker]: I run all of this inside of Docker containers to make them all self-contained.
 * [Debian]: The Linxu distribution running on my NUC that runs all the Docker containers.
 
@@ -26,8 +24,6 @@ While [Home Assistant] is the primary component of my smart home, there are othe
 
 * [Intel NUC] NUC7i3BNHXF: The hardware platform running all of the software.
 * [Philips Hue bridge] (2nd Generation) and bulbs
-* Z-Wave switches and sensors
-  * Aeotec [Z-Stick Gen5]
 * [Yale Real Living YRD216ZW2619] Assure Lock Push Button Deadbolt with Z-Wave
 * [Ring Video Doorbell 2] with indoor [Ring Chime]
 * 3 x Ubiquiti [UniFi UAP-AC-PRO]s
@@ -51,6 +47,9 @@ While [Home Assistant] is the primary component of my smart home, there are othe
 * [RainMachine Pro-16] sprinkler controller
 * 2 x [Turn Touch] remotes
 * [LiftMaster WLED] DC Battery Backup Belt Drive LED Wi-Fi Garage Door Opener
+* Z-Wave switches and sensors
+  * Aeotec [Z-Stick Gen5]
+  * HomeSeer [HS-FLS100+] Outdoor Floodlight Sensor
 
 <!-- Software -->
 [Home Assistant]: https://home-assistant.io
@@ -87,3 +86,4 @@ While [Home Assistant] is the primary component of my smart home, there are othe
 [LiftMaster WLED]: https://www.liftmaster.com/led-light-garage-door-opener/p/WLED
 <!-- Z-Wave -->
 [Z-Stick Gen5]: https://amzn.to/2GAbAOy
+[HS-FLS100+]: https://amzn.to/2DAjohf
