@@ -7,7 +7,13 @@ sequence:
       parameter: 8
       value: >
         {% if effect|default|lower == "off" %}
-          0
+          {{ {
+              '255': 1,
+              '65280': 10,
+              '16711680': 255,
+              '2130706432': 0
+             }
+          }}
         {% else %}
           {% set colors = {
             "red": 1,
@@ -71,6 +77,11 @@ sequence:
           {% set bb = brightness | default(10) %} 
           {% set bc = durations[duration | default("hold") | lower] %}
           {% set bd = effects[effect | default("solid") | lower] %}
-
-          {{ ba + (bb * (2**8)) + (bc * (2**16)) + (bd * (2**24)) }}
+          {{ {
+              '255': ba,
+              '65280': bb,
+              '16711680': bc,
+              '2130706432': bd
+             }
+          }}
         {% endif %}

@@ -1,6 +1,6 @@
 action:
-  service: script.turn_on
-  entity_id: script.goodnight
+  service: input_boolean.turn_on
+  entity_id: input_boolean.sleeping
 speech:
   type: plain
   text: >
@@ -8,7 +8,7 @@ speech:
    {% if is_state("input_boolean.wakeup_lights", "on") %}
     The lights will be on at {{ states("input_datetime.alarm_time") }}.
    {% else %}
-    I won't turn the lights on. Good luck!
+    I won't turn the lights on.
    {% endif %}
    {% if is_state("cover.garage_door", "closed") %}
     The garage door is closed.

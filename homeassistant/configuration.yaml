@@ -39,7 +39,7 @@ mobile_app:
 notify: !include conf/notifiers.yaml
 person:
 recorder: !include conf/recorder.yaml
-remote: !include conf/remote.yaml
+#remote: !include conf/remote.yaml
 scene: !include_dir_list conf/scenes/
 script: !include_dir_named conf/scripts/
 sensor: !include_dir_list conf/sensors/

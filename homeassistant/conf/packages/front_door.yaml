@@ -68,7 +68,7 @@ automation:
             {% set scn = "stpats" %}
           {% elif day|int in range(easter(year)|int - 4, easter(year)|int + 5) %}
             {% set scn = "easter" %}
-          {% elif day|int == 614 or day|int in range(0701, 0706) %}
+          {% elif day|int == 614 or day|int in range(701, 706) %}
             {% set scn = "flag" %}
           {% elif day|int in range(1024, 1032) %}
             {% set scn = "halloween" %}
