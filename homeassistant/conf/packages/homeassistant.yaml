@@ -1,0 +1,33 @@
+automation:
+  - id: 9fb565ec-a0a7-11eb-b393-a30087cd7157
+    alias: "Login Failure"
+    trigger:
+      platform: template
+      value_template: "{{ states('persistent_notification.httplogin') != 'unknown' }}"
+    action:
+      service: notify.smkelly_sms
+      data:
+        message: "HASS bad login attempt."
+
+  - id: acb296fc-a0a7-11eb-87c0-ef5bcf92a8d4
+    alias: "HASS starting up"
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      service: notify.ios_smkelly
+      data:
+        message: "Starting up."
+
+  - id: b9925664-a0a7-11eb-aea4-5f7992db09d1
+    alias: 'Update Available Notification'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.updater
+      from: "off"
+      to: "on"
+    action:
+      service: notify.ios_smkelly
+      data:
+        message: 'Update for Home Assistant is available.'
+
