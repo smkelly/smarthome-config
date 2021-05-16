@@ -43,7 +43,7 @@ automation:
       - service: light.turn_off
         entity_id: group.master_bedroom
         data:
-          transition: 15
+          transition: 5
       - service: switch.turn_off
         entity_id: switch.master_closet_light
 
