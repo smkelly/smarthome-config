@@ -1,7 +1,0 @@
-title: Alarm
-path: alarm
-icon: mdi:home-alert
-cards:
-  - type: alarm-panel
-    name: Home Alarm
-    entity: alarm_control_panel.home_alarm
