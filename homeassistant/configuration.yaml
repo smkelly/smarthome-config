@@ -48,6 +48,5 @@ sun:
 system_health:
 tts: !include conf/tts.yaml
 twilio: !include conf/twilio.yaml
-updater:
 zeroconf:
 zone: !include conf/zones.yaml
