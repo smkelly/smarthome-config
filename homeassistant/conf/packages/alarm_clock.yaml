@@ -38,23 +38,23 @@ automation:
       service: script.turn_on
       entity_id: script.wakeup
 
-  - id: e4ed7a4c-a0a6-11eb-a981-97d92297d048
-    alias: Setup Wakeup switch for tomorrow
-    trigger:
-      platform: time
-      at: '20:00:00'
-    condition:
-      - condition: state
-        entity_id: input_boolean.vacation_mode
-        state: 'off'
-    action:
-      service: >
-        {% if ((as_timestamp(now())+86400) |  timestamp_custom("%w") | int) in range(1,6) %}
-          input_boolean.turn_on
-        {% else %}
-          input_boolean.turn_off
-        {% endif %}
-      entity_id: input_boolean.wakeup_lights
+  # - id: e4ed7a4c-a0a6-11eb-a981-97d92297d048
+  #   alias: Setup Wakeup switch for tomorrow
+  #   trigger:
+  #     platform: time
+  #     at: '20:00:00'
+  #   condition:
+  #     - condition: state
+  #       entity_id: input_boolean.vacation_mode
+  #       state: 'off'
+  #   action:
+  #     service: >
+  #       {% if ((as_timestamp(now())+86400) |  timestamp_custom("%w") | int) in range(1,6) %}
+  #         input_boolean.turn_on
+  #       {% else %}
+  #         input_boolean.turn_off
+  #       {% endif %}
+  #     entity_id: input_boolean.wakeup_lights
 
 input_boolean:
   wakeup_lights:
