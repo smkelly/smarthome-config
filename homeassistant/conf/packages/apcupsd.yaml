@@ -1,0 +1,14 @@
+apcupsd:
+  host: !secret hass_ip
+
+binary_sensor:
+  - platform: apcupsd
+
+sensor:
+  - platform: apcupsd
+    resources:
+      - bcharge
+      - linev
+      - numxfers
+      - timeleft
+      
