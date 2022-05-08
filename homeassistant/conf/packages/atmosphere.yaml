@@ -1,6 +1,3 @@
-binary_sensor:
-  - platform: iss
-
 sensor:
   - platform: season
     type: astronomical
