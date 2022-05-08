@@ -1,4 +1,48 @@
 automation:
+  - id: 79088d3a-71b6-11ec-a5e8-1bc32e2f01c8
+    alias: "Nursery light switch on"
+    trigger:
+      platform: event
+      event_type: zwave_js_value_notification
+      event_data:
+        node_id: 34
+        label: 'Scene 001'
+        value: 'KeyPressed'
+    action:
+      service: light.turn_on
+      entity_id: light.nursery_light
+      data:
+        rgb_color: [ 255, 0, 0 ]
+        brightness: 255
+  
+  - id: 1c996270-cd41-4eae-9653-94d5ebee4907
+    alias: "Nursery light switch off"
+    trigger:
+      platform: event
+      event_type: zwave_js_value_notification
+      event_data:
+        node_id: 34
+        label: 'Scene 002'
+        value: 'KeyPressed'
+    action:
+      service: light.turn_off
+      entity_id: light.nursery_light
+
+  - id: ad0a8980-5a1f-4bba-8ff2-1c8e5689c6aa
+    alias: "Nursery light switch slow off"
+    trigger:
+      platform: event
+      event_type: zwave_js_value_notification
+      event_data:
+        node_id: 34
+        label: 'Scene 002'
+        value: 'KeyPressed2x'
+    action:
+      service: light.turn_off
+      entity_id: light.nursery_light
+      data:
+        transition: 120
+
   - id: 5d3772b4-a0a7-11eb-8aae-87fda5ce3925
     alias: "Notify on nursery light on"
     trigger:
