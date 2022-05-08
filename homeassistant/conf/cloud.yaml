@@ -9,6 +9,7 @@ alexa:
       - binary_sensor.front_door_motion
       - binary_sensor.nurserycam_motion_detected
       - binary_sensor.store_room_motion_sensor
+      - binary_sensor.storm_door_sensor_open
       - climate.home
       - input_boolean.rainbow_mode
       - input_boolean.sleeping

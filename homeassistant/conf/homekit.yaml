@@ -9,6 +9,7 @@ filter:
     - binary_sensor.front_door_motion
     - binary_sensor.nurserycam_motion_detected
     - binary_sensor.store_room_motion_sensor
+    - binary_sensor.storm_door_sensor_open
     - camera.front_door
     - climate.home
     - input_boolean.rainbow_mode
@@ -18,6 +19,8 @@ filter:
     - person.rachel
     - person.sean
     - sensor.backyard_floodlight_illuminance
+    - sensor.master_bedroom_climate_air_temperature
+    - sensor.master_bedroom_climate_humidity
     - sensor.netatmo_kellys_weather_family_room_backyard_humidity
     - sensor.netatmo_kellys_weather_family_room_backyard_temperature
     - sensor.netatmo_kellys_weather_family_room_co2
@@ -35,6 +38,7 @@ filter:
     - switch.laundry_room_light
     - switch.living_room_lamp_1
     - switch.living_room_lamp_2
+    - switch.living_room_tree
     - switch.master_closet_light
 
 
