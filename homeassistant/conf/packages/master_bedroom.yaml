@@ -1,4 +1,18 @@
 automation:
+  - id: 262a286f-f0bd-4248-bd3b-986c0591a418
+    alias: "Turn off sleep via dehumidifier"
+    trigger:
+      platform: state
+      entity_id: switch.bathroom_dehumidifier
+      to: "on"
+    condition:
+      condition: state
+      entity_id: input_boolean.sleeping
+      state: 'on'
+    action:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.sleeping
+
   - id: a0987c68-a06d-11eb-a024-6382b11f8bde
     alias: "Dark mode: Master Bedroom on"
     trigger:
