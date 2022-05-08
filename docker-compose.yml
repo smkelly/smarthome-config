@@ -3,7 +3,7 @@ version: '3.7'
 services:
   postgres:
     container_name: postgres
-    image: postgres:11
+    image: postgres:14
     volumes:
       - /opt/smarthome/postgres:/var/lib/postgres/data
     environment:
@@ -22,7 +22,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:4.2.1
+    image: zwavejs/zwavejs2mqtt:6.9.0
     tty: true
     stop_signal: SIGINT
     restart: unless-stopped
@@ -36,7 +36,7 @@ services:
 
   hass:
     container_name: hass
-    image: ghcr.io/home-assistant/home-assistant:2021.5.3
+    image: ghcr.io/home-assistant/home-assistant:2022.5.2
     volumes:
       - /opt/smarthome/homeassistant/:/config
       - /etc/localtime:/etc/localtime:ro
@@ -47,4 +47,3 @@ services:
     depends_on:
       - postgres
       - zwavejs2mqtt
-

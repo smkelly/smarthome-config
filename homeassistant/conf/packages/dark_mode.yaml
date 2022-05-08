@@ -13,8 +13,7 @@ automation:
         - condition: state
           entity_id: input_boolean.dark_mode
           state: "off"
-        - condition: or
-          conditions:
+        - or:
           - condition: sun
             after: sunset
           - condition: numeric_state

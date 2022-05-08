@@ -6,6 +6,7 @@
 .uuid
 *.pickle
 OZW_Log.txt
+backups/
 deps/
 ecobee.conf
 harmony_family_room.conf
