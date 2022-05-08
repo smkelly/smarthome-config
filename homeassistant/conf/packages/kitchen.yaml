@@ -9,9 +9,6 @@ automation:
       - condition: state
         entity_id: input_boolean.sleeping
         state: "on"
-      - condition: state
-        entity_id: switch.kitchen_lights
-        state: "on"
     action:
       service: switch.turn_off
       entity_id:
