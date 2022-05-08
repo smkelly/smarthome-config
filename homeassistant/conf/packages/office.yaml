@@ -34,11 +34,13 @@ automation:
 - id: 2e58976c-9f20-11eb-85be-27e7e153dccb
   alias: "Office webcam activation change"
   trigger:
-    - platform: state
-      entity_id: binary_sensor.doctor_camera_in_use
+    - id: "camera on"
+      platform: state
+      entity_id: binary_sensor.rose_camera_in_use
       to: "on"
-    - platform: state
-      entity_id: binary_sensor.doctor_camera_in_use
+    - id: "camera off"
+      platform: state
+      entity_id: binary_sensor.rose_camera_in_use
       to: "off"
       for:
         seconds: 3
