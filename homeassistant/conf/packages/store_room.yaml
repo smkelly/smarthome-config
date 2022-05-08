@@ -2,11 +2,13 @@ automation:
   - id: 62a10670-9f21-11eb-9cd3-7fbb1eaf6510
     alias: "Store Room motion"
     trigger:
-      - platform: state
+      - id: "off"
+        platform: state
         entity_id: binary_sensor.store_room_motion_sensor_home_security_motion_detection
         to: "off"
         for: "00:03:00"
-      - platform: state
+      - id: "on"
+        platform: state
         entity_id: binary_sensor.store_room_motion_sensor_home_security_motion_detection
         to: "on"
     variables:

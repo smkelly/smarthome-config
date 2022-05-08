@@ -2,9 +2,11 @@ automation:
   - id: 181aee54-a0a7-11eb-a126-d36130d6693d
     alias: "Dark Mode: On"
     trigger:
-      - platform: sun
+      - id: "sunset"
+        platform: sun
         event: sunset
-      - platform: numeric_state
+      - id: "illuminance"
+        platform: numeric_state
         entity_id: sensor.backyard_floodlight_illuminance
         below: 100
     condition:
@@ -25,9 +27,11 @@ automation:
   - id: 21cd43f2-a0a7-11eb-9586-ef4748dec016
     alias: "Dark Mode:: Off"
     trigger:
-      - platform: sun
+      - id: "sunrise"
+        platform: sun
         event: sunrise
-      - platform: numeric_state
+      - id: "illuminance"
+        platform: numeric_state
         entity_id: sensor.backyard_floodlight_illuminance
         above: 100
     condition:

@@ -8,10 +8,12 @@ automation:
   - id: b1d73f2e-a06c-11eb-8305-63c34ebd06ff
     alias: "Bathroom Dehumidifier: Turn on"
     trigger:
-      - platform: state
+      - id: "wakeup"
+        platform: state
         entity_id: input_boolean.sleeping
         to: "off"
-      - platform: time
+      - id: "fallback"
+        platform: time
         at: "08:00:00"
     condition:
       condition: state
