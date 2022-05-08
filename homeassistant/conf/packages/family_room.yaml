@@ -1,6 +1,7 @@
 adaptive_lighting:
   name: "Family Room Light Adjuster"
   min_color_temp: 2500
+  min_brightness: 75
   lights:
     - light.family_room_1
     - light.family_room_2
