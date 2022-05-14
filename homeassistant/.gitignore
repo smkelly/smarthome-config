@@ -11,6 +11,7 @@ deps/
 ecobee.conf
 harmony_family_room.conf
 home-assistant.log
+home-assistant.log.*
 home-assistant_v2.db
 known_devices.yaml
 options.xml
