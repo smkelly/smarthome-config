@@ -11,10 +11,7 @@ automation:
   action:
     service: light.turn_off
     entity_id:
-      - light.office_1
-      - light.office_2
-      - light.office_3
-      - light.office_4
+      - light.office_lights
 
 - id: 24cdf2d2-9f20-11eb-b599-e35079718ea2
   alias: "Office computer active, lights on"
@@ -26,10 +23,7 @@ automation:
   action:
     service: light.turn_on
     entity_id:
-      - light.office_1
-      - light.office_2
-      - light.office_3
-      - light.office_4
+      - light.office_lights
 
 - id: 2e58976c-9f20-11eb-85be-27e7e153dccb
   alias: "Office webcam activation change"
@@ -80,12 +74,14 @@ automation:
                 entity_id: "switch.kitchen_lights"
                 effect: "off"      
 
-group:
-  office_lights:
-    - light.office_1
-    - light.office_2
-    - light.office_3
-    - light.office_4
+light:
+  - platform: group
+    name: "Office lights"
+    entities:
+      - light.office_1
+      - light.office_2
+      - light.office_3
+      - light.office_4
 
 adaptive_lighting:
   name: "Office Light Adjuster"
