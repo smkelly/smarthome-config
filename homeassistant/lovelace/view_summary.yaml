@@ -11,7 +11,7 @@ cards:
         name: Family Room
       - entity: group.bedroom_fan
         name: Master Bedroom
-      - entity: group.office_lights
+      - entity: light.office_lights
         name: Office
       - entity: group.living_room_lights
         name: Living Room
