@@ -22,7 +22,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:6.9.0
+    image: zwavejs/zwavejs2mqtt:6.9.1
     tty: true
     stop_signal: SIGINT
     restart: unless-stopped
@@ -36,7 +36,7 @@ services:
 
   hass:
     container_name: hass
-    image: ghcr.io/home-assistant/home-assistant:2022.5.2
+    image: ghcr.io/home-assistant/home-assistant:2022.5.4
     volumes:
       - /opt/smarthome/homeassistant/:/config
       - /etc/localtime:/etc/localtime:ro
