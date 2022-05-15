@@ -39,9 +39,9 @@ scene:
     entities:
       cover.garage_door: 'closed'
       group.bedroom_fan: 'on'
-      group.family_room_lights: 'off'
       group.living_room_lamps: 'off'
       light.bar_lights: 'on'
+      light.family_room_lights: 'off'
       lock.front_door_deadbolt: 'locked'
       remote.family_room: 'off'
       switch.dining_room_light: 'on'
@@ -54,9 +54,9 @@ scene:
     id: db34a414-b413-11eb-8363-1728737d3fa0
     entities:
       cover.garage_door: 'closed'
-      group.family_room_lights: 'off'
       group.living_room_lamps: 'off'
       light.bar_lights: 'on'
+      light.family_room_lights: 'off'
       lock.front_door_deadbolt: 'locked'
       remote.family_room: 'off'
       switch.dining_room_light: 'off'

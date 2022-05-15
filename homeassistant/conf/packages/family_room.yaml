@@ -3,10 +3,7 @@ adaptive_lighting:
   min_color_temp: 2500
   min_brightness: 75
   lights:
-    - light.family_room_1
-    - light.family_room_2
-    - light.family_room_3
-    - light.family_room_4
+    - light.family_room_lights
 
 automation:
   - id: aa4f346a-9f21-11eb-aac3-af83f59742a4
@@ -20,7 +17,7 @@ automation:
       state: 'on'
     action:
       service: light.turn_on
-      entity_id: group.family_room_lights
+      entity_id: light.family_room_lights
       data:
         effect: random
         transition: 60
@@ -46,3 +43,12 @@ automation:
 input_boolean:
   rainbow_mode:
     name: Rainbow Mode
+
+light:
+  - platform: group
+    name: "Family Room Lights"
+    entities:
+      - light.family_room_1
+      - light.family_room_2
+      - light.family_room_3
+      - light.family_room_4

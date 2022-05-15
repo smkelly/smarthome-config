@@ -7,7 +7,7 @@ cards:
     entities:
       - type: section
         label: Lights
-      - entity: group.family_room_lights
+      - entity: light.family_room_lights
         name: Family Room
       - entity: group.bedroom_fan
         name: Master Bedroom

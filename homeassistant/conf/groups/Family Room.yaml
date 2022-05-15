@@ -1,4 +1,4 @@
-- group.family_room_lights
+- light.family_room_lights
 - sensor.family_room_temperature
 - binary_sensor.family_room_occupancy   
 - remote.family_room
