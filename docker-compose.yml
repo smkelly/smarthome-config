@@ -36,12 +36,14 @@ services:
 
   hass:
     container_name: hass
-    image: ghcr.io/home-assistant/home-assistant:2022.5.4
+    image: ghcr.io/home-assistant/home-assistant:2022.5.5
     volumes:
       - /opt/smarthome/homeassistant/:/config
       - /etc/localtime:/etc/localtime:ro
       - ${SSL_PATH}/:/etc/ssl/private:ro
       - /etc/ssl/certs:/etc/ssl/certs:ro
+    devices:
+      - /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
     restart: unless-stopped
     network_mode: host
     depends_on:
