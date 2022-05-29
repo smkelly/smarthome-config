@@ -1,4 +1,29 @@
 automation:
+  - id: 532908d0-7e8c-4f54-98cd-4251c0e320ed
+    alias: "Nursery light on at night"
+    trigger:
+      platform: time
+      at: "18:15"
+    action:
+      service: light.turn_on
+      entity_id: light.nursery_light
+      data:
+        rgb_color: [ 255, 0, 0 ]
+        brightness: 255
+
+  - id: 45ee8002-f877-43b0-95fa-173160b0be2b
+    alias: "Nursery light off at night"
+    trigger:
+      platform: time
+      at: "19:15"
+    condition:
+      - condition: state
+        entity_id: light.nursery_light
+        state: 'on'
+    action:
+      service: light.turn_off
+      entity_id: light.nursery_light
+
   - id: 79088d3a-71b6-11ec-a5e8-1bc32e2f01c8
     alias: "Nursery light switch on"
     trigger:
