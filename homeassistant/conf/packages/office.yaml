@@ -76,6 +76,7 @@ automation:
 
 light:
   - platform: group
+    unique_id: "6b82eb9f-6032-4ec8-9356-dc417ec3def4"
     name: "Office lights"
     entities:
       - light.office_1
