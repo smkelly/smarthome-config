@@ -6,7 +6,7 @@
   platform: group
   services:
     service: mobile_app_sean_s_iphone_11_pro
-  
+
 - name: smkelly_sms
   platform: group
   services:
@@ -26,4 +26,3 @@
   services:
     - service: smkelly_sms
     - service: rachel_sms
-

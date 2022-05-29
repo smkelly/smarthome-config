@@ -4,7 +4,7 @@
   name: "NurseryCam"
   stream_source: rtsp
   resolution: high
-  #ffmpeg_arguments: "-acodec copy -vcodec copy"
+  # ffmpeg_arguments: "-acodec copy -vcodec copy"
   binary_sensors:
     - motion_detected
     - online

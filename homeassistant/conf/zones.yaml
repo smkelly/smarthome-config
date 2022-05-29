@@ -15,5 +15,3 @@
   latitude: !secret zone_smkelly_work_lat
   longitude: !secret zone_smkelly_work_lon
   radius: 100
-
-

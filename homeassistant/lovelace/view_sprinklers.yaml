@@ -35,11 +35,11 @@ cards:
       - type: custom:button-card
         template: sprinkler
         entity: switch.center_north_front_rotaries
-        
+
       - type: custom:button-card
         template: sprinkler
         entity: switch.center_south_front_rotaries
-  
+
       - type: custom:button-card
         template: sprinkler
         entity: switch.west_front_street_to_gate
@@ -55,4 +55,3 @@ cards:
       - type: custom:button-card
         template: sprinkler
         entity: switch.south_side_back_grass_rotaries
-

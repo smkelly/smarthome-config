@@ -4,7 +4,7 @@ christmas-tree:
   state:
     - value: "on"
       color: green
-    
+
 room_toggle:
   state:
     - value: "on"
@@ -22,7 +22,7 @@ room_toggle:
   styles:
     grid:
       - grid-template-areas: '"n i"'
-      - grid-template-columns: 2fr 1fr 
+      - grid-template-columns: 2fr 1fr
       - grid-template-rows: 1fr
     icon:
       - color: >
@@ -73,7 +73,7 @@ sprinkler:
       color: blue
     - value: "off"
       icon: mdi:water-outline
-      color: gray      
+      color: gray
 
 light:
   name: Light

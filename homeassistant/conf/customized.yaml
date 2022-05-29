@@ -34,4 +34,3 @@ sensor.dark_sky_wind_speed:
   friendly_name: Wind Speed
 sensor.dark_sky_wind_bearing:
   friendly_name: Wind Bearing
-
