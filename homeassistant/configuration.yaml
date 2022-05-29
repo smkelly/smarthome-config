@@ -36,6 +36,7 @@ lovelace: !include conf/lovelace.yaml
 map:
 media_player:
 mobile_app:
+noonlight: !include conf/noonlight.yaml
 notify: !include conf/notifiers.yaml
 person:
 recorder: !include conf/recorder.yaml
