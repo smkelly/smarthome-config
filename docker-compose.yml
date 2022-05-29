@@ -31,8 +31,8 @@ services:
     devices:
       - /dev/serial/by-id/usb-0658_0200-if00
     ports:
-      - 3000:3000 # websocket API
-      - 8091:8091 # web interface
+      - 3000:3000  # websocket API
+      - 8091:8091  # web interface
 
   hass:
     container_name: hass
