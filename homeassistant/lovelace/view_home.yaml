@@ -121,13 +121,13 @@ cards:
     cards:
       - type: horizontal-stack
         cards:
-      - type: "custom:button-card"
-        entity: sensor.netatmo_kellys_weather_family_room_backyard_temperature
-        template: temp
-      - type: "custom:button-card"
-        entity: sensor.netatmo_kellys_weather_family_room_backyard_humidity
-        show_name: false
-        show_state: true
+          - type: "custom:button-card"
+            entity: sensor.netatmo_kellys_weather_family_room_backyard_temperature
+            template: temp
+          - type: "custom:button-card"
+            entity: sensor.netatmo_kellys_weather_family_room_backyard_humidity
+            show_name: false
+            show_state: true
       - type: gauge
         entity: sensor.backyard_floodlight_illuminance
         name: Luminance
@@ -143,9 +143,9 @@ cards:
           type: graph
           entity: sensor.netatmo_kellys_weather_family_room_backyard_temperature
         entities:
-      - entity: switch.backyard_floodlight
-        name: Floodlight
-        icon: mdi:spotlight-beam
-      - entity: binary_sensor.backyard_motion
-        name: Motion
-        icon: mdi:motion-sensor
+          - entity: switch.backyard_floodlight
+            name: Floodlight
+            icon: mdi:spotlight-beam
+          - entity: binary_sensor.backyard_motion
+            name: Motion
+            icon: mdi:motion-sensor
