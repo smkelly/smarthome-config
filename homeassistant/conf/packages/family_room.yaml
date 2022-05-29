@@ -46,6 +46,7 @@ input_boolean:
 
 light:
   - platform: group
+    unique_id: "f35f2291-591f-4eca-89ac-71a33474540b"
     name: "Family Room Lights"
     entities:
       - light.family_room_1
