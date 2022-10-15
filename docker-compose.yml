@@ -22,7 +22,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:6.11.0
+    image: zwavejs/zwavejs2mqtt:8.2.0
     tty: true
     stop_signal: SIGINT
     restart: unless-stopped
@@ -36,9 +36,11 @@ services:
 
   hass:
     container_name: hass
-    image: ghcr.io/home-assistant/home-assistant:2022.5.5
+    image: ghcr.io/home-assistant/home-assistant:2022.10.3
+    privileged: true
     volumes:
       - /opt/smarthome/homeassistant/:/config
+      - /run/dbus:/run/dbus:ro
       - /etc/localtime:/etc/localtime:ro
       - ${SSL_PATH}/:/etc/ssl/private:ro
       - /etc/ssl/certs:/etc/ssl/certs:ro
