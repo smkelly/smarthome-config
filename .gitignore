@@ -12,3 +12,4 @@ homeassistant/themes/
 homeassistant/www/community/
 homeassistant/harmony_*.conf
 zwavejs/
+homeassistant/zigbee.db*
