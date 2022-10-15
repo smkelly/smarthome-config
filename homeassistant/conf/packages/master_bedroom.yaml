@@ -1,4 +1,27 @@
 automation:
+  - id: 49b7bbe3-05cd-451a-a99c-5eb3d4f6ee27
+    alias: "Turn zoning HVAC on"
+    trigger:
+      platform: time
+      at: "20:00"
+    condition:
+      condition: state
+      entity_id: input_boolean.vacation_mode
+      state: "off"
+    action:
+      service: switch.turn_on
+      entity_id: switch.home_zoning_enable
+
+  - id: 17b1179d-24c3-447d-a382-ebf1e5664d66
+    alias: "Sleeping off, turn off HVAC zoning"
+    trigger:
+      platform: state
+      entity_id: input_boolean.sleeping
+      to: "off"
+    action:
+      service: switch.turn_off
+      entity_id: switch.home_zoning_enable
+
   - id: 262a286f-f0bd-4248-bd3b-986c0591a418
     alias: "Turn off sleep via dehumidifier"
     trigger:
